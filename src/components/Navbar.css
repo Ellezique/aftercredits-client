@@ -1,0 +1,157 @@
+.navbar {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  /*z-index: An element with greater stack order is always in front of an element with a lower stack order.*/
+  z-index: 1000; /*Stacks navbar ontop of everything else*/
+  font-size:20px;
+  max-width: 100vw;
+  position: sticky;
+  top: 0;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  /*The navbar content has max width to keep the bar central if the view is extremely wide*/
+  /* max-width: 1200px; */
+}
+
+/*LOGO SECTION */
+.logo-section {
+  display: flex;
+  justify-content: left; 
+  align-items: center;
+  font-size: 40px; 
+  margin-left: 20px; /*content 20px away form left edge of screen if view is 1200px wide*/
+  text-decoration: none; /*Removes link's default underline*/
+  color: white; /*Overide default link purple/blue color*/
+  cursor: pointer; /*Cursor changes to pointer when over Logo*/ 
+
+  /* Keeps logo and text on same line: */
+  position: absolute;
+  top: 10px;
+  left: 0;
+  transform: translate(25%, 50%);
+ 
+}
+
+.logo-section:hover {
+  color: lightgrey;
+}
+
+/*Film logo in Navbar*/
+.fa-film {
+  margin-left: 8px;
+  font-size: 30px;
+}
+
+/*Navbar menu layout for menu items*/
+.nav-menu {
+  display: grid; /*columns*/
+  grid-template-columns: repeat(4, auto); /*the number and the widths of columns in a grid layout*/
+  grid-gap: 30px; /*Gap between PAGES*/
+  justify-content: right;
+  text-align: center;
+  list-style: none; /*Removes default bullets for list menu items*/
+  width: 80vw; /*spreads items out */
+  margin-right: 20px; /*content 20px away form left edge of screen if view is 1200px wide */
+}
+
+/* .nav-item {
+  delete if not needed
+} */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 75px; /*kept same as nav-item*/
+  color: red; /*Changes default purple/blue link color*/
+  text-decoration: none; /*Removes default link underline*/
+}
+
+.nav-links:hover {
+  color: lightgrey;
+}
+
+/*burgermenu bars icon*/
+.fa-bars {
+  color: white;
+  font-size: 40px; /*larger icon*/
+}
+/*burgemenu x icon*/
+.fa-times {
+  color: white;
+  font-size: 40px; /*larger icon*/
+}
+
+
+/*hide burger-icon when outside mobile view*/
+.menu-icon {
+  display: none; 
+}
+
+
+/* MOBILE VIEW and media break points*/
+@media screen and (max-width: 960px) {
+  .NavbarItems {
+    position: relative;
+  }
+/*MOBILE Navbar menu responsive layout for menu items*/
+  /*default styling for when menu is closed plus transition*/
+  .nav-menu {
+    display: flex;
+    flex-direction: column;/*All menu items listed in a column on top of each other*/
+    width: 100%; /*drop down menu fills width of screen*/
+    height: 100vh; /*Only what is needed to accommodate drop down menu. Can change to fill the page e.g. 90vh*/
+    position: absolute;
+    top: 80px;/*Match navbar height*/
+    left: -100%; /*drop down menu sits 100% to the left outside the screen when burger menu is closed*/
+    transition: all 0.5s ease; /*The burger menu slides left to right and vice versa when menu is opened and closed*/
+  }
+  /*when burger menu is opened*/
+  .nav-menu.active {
+    background: #252525;
+    left: 0; /*Makes burger menu slide from left -100, rigth until it fills the screen width 100%*/
+    z-index: 1;/*z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order. Note: z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky).*/
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+  }
+
+  .nav-links:hover {
+    background-color: white;
+    color: black;
+  }
+
+  /*keep logo left in mobile*/
+  .logo-section {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+
+  /*show burger-icon in mobile view*/
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%); /*position*/
+    font-size: 30px;
+    cursor: pointer;
+  }
+}
+
+
+
