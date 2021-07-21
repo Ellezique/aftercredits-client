@@ -6,25 +6,24 @@ function Navbar() {
     <>
       <nav className="navbar">
         <div className="navbar-container">
-          <h1>NAVBAR</h1>
           <ul>
-            <li>
-              <Link>
+            <li className='nav-item'>
+              <Link Link to='/' className='nav-links'>
                 Home
               </Link>
             </li>
-            <li>
-              <Link>
+            <li className='nav-item'>
+              <Link Link to='/LogIn' className='nav-links'>
                 LogIn
               </Link>
             </li>
-            <li>
-              <Link>
+            <li className='nav-item'>
+              <Link Link to='/SignUp' className='nav-links'>
                 SignUp
               </Link>
             </li>
-            <li>
-              <Link>
+            <li className='nav-item'>
+              <Link to='/Contact' className='nav-links'>
                 Contact
               </Link>
             </li>
