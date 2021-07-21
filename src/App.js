@@ -1,16 +1,26 @@
 import React from 'react'
+import Navbar from './components/Navbar.js'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 //import './App.css'
 import Home from './components/pages/Home'
+import LogIn from './components/pages/LogIn'
+import SignUp from './components/pages/SignUp'
 import Contact from './components/pages/Contact'
-import Contact from '.components/pages/Login'
-import Contact from '.components/pages/SignUp'
-
 
 const App = () => {
   return (
-    <div >
-          The basic empty template
+    <div className="App">
+          <Router >
+            <Navbar />
+            <Switch>
+              <div>
+                <Route exact path='/' component={Home} />
+                <Route path='/LogIn' component={LogIn} />
+                <Route path='/SignUp' component={SignUp} />
+                <Route path='/Contact' component={Contact} />
+              </div>
+            </Switch>
+          </Router>
     </div>
   )
 }
