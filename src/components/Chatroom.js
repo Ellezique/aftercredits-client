@@ -15,12 +15,14 @@ export default function Chatroom({spoilerRoom}) {
     {username: 'ICantHelpMyself', text: 'Tony Stark dies in the end, GG', date: '12/07/2021', spoiler: true},
   ]
 
+  //Will change this into a get request that filters which messages to return/render
   const messages = spoilerRoom ?
     messagesList.filter(message => message.spoiler === true) :
     messagesList.filter(message => message.spoiler === false)
 
   return (
     <div className='ChatroomContainer'>
+      {/* Renders Messages after they have been filtered above */}
       {messages.map((message, index) => {
         return (
           <Message key={index} message={message}/>
