@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './Button'
+import './Message.css'
 
 
 export default function Message({message}) {
@@ -11,7 +12,7 @@ export default function Message({message}) {
       <p className='MessageDate'>{date}</p>
       <Button 
         text='Edit'
-        callback={} // implement edit functionality
+        //callback={}  implement edit functionality
         // icon='' grab later
       />
     </div>
