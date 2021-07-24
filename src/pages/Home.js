@@ -3,7 +3,7 @@ import React from 'react'
 function Home() {
 
   //calls api component to fetch ids from our database
-  const getIds = async () => {
+  const getMediaDetails = async () => {
     try {
       //Destructures data from response
       const { data } = await api.post('', {
