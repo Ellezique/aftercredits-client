@@ -1,10 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Message from './Message'
 import './Chatroom.css'
 
 export default function Chatroom({spoilerRoom}) {
+  const [messages, setMessages] = useState()
 
-  // need a useEffect to check if messages have been updated in the database to then call for the latest messages and add them to the render, could start with rerendering all messages but would prefer only the latest to save on resources
+  useEffect(() => {
+    api.get("/messages")
+    .then(({ data }) => setMessages(data))
+    .catch(({ message }) => setErrorMessage(`Error: ${message}`))
+  }, [setMessages])
+
+  const addMessage = async (event) => {
+    event.preventDefault()
+    try {
+      // send a post request to add the new card to the backend
+      const { data } = await api.post("/messages", {
+        username,
+        text,
+        date,
+        spoiler
+      })
+      // update the component state with the new card
+      dispatch({type: 'addMessage', payload: data})
+    } catch ({ message }) {
+      setErrorMessage(`Error: ${message}`)
+  }
+
+  const deleteMessage = async (id, index) => {
+    try {
+      // DELETE request to backend with id
+      await api.delete(`/messages/${id}`);
+      // remove message from the react state
+      dispatch({type: 'removeMessage', payload: id})
+    } catch ({ message }) {
+      setErrorMessage(message)
+    }
+  }
+
 
   // get messages from database once api/server are implemented
   const messagesList = [
