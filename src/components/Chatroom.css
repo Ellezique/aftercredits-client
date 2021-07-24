@@ -1,0 +1,7 @@
+.ChatroomContainer {
+  border: 2px solid red;
+  border-radius: 8px;
+  background-color: black;
+  width: 250px;
+  height: 600px;
+}

@@ -2,7 +2,8 @@ import React from 'react'
 import Button from './Button'
 
 
-export default function Message({username, text, date}) {
+export default function Message({message}) {
+  const {username, text, date} = message
   return (
     <div className='MessageContainer'>
       <p className='MessageUser'>{username}</p>
