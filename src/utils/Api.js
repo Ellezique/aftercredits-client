@@ -1,7 +1,7 @@
 import axios from 'axios'
 
+//BASEURLs
 let apiUrl = ''
-
 if(database) {
   apiUrl = ''
 }
@@ -11,6 +11,7 @@ if(movie) {
 if(google) {
   apiUrl = ''
 }
+
 
 export const api = axios.create({
   baseURL: apiUrl

@@ -1,0 +1,20 @@
+.MessageContainer {
+  border: 1px solid red;
+  border-radius: 8px;
+  background-color: black;
+  color: white;
+  width: 200px;
+  height: 100px;
+}
+
+.MessageUser {
+
+}
+
+.MessageText {
+
+}
+
+.MessageDate {
+
+}
