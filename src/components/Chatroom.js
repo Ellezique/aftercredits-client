@@ -3,40 +3,42 @@ import Message from './Message'
 import './Chatroom.css'
 
 export default function Chatroom({spoilerRoom}) {
-  const [messages, setMessages] = useState()
+  //Commented out until we get full api integration
+  // const [messages, setMessages] = useState()
 
-  useEffect(() => {
-    api.get("/messages")
-    .then(({ data }) => setMessages(data))
-    .catch(({ message }) => setErrorMessage(`Error: ${message}`))
-  }, [setMessages])
+  // useEffect(() => {
+  //   api.get("/messages")
+  //   .then(({ data }) => setMessages(data))
+  //   .catch(({ message }) => setErrorMessage(`Error: ${message}`))
+  // }, [setMessages])
 
-  const addMessage = async (event) => {
-    event.preventDefault()
-    try {
-      // send a post request to add the new card to the backend
-      const { data } = await api.post("/messages", {
-        username,
-        text,
-        date,
-        spoiler
-      })
-      // update the component state with the new card
-      dispatch({type: 'addMessage', payload: data})
-    } catch ({ message }) {
-      setErrorMessage(`Error: ${message}`)
-  }
+  // const addMessage = async (event) => {
+  //   event.preventDefault()
+  //   try {
+  //     // send a post request to add the new card to the backend
+  //     const { data } = await api.post("/messages", {
+  //       username,
+  //       text,
+  //       date,
+  //       spoiler
+  //     })
+  //     // update the component state with the new card
+  //     dispatch({type: 'addMessage', payload: data})
+  //   } catch ({ message }) {
+  //     setErrorMessage(`Error: ${message}`)
+  //   }
+  // }
 
-  const deleteMessage = async (id, index) => {
-    try {
-      // DELETE request to backend with id
-      await api.delete(`/messages/${id}`);
-      // remove message from the react state
-      dispatch({type: 'removeMessage', payload: id})
-    } catch ({ message }) {
-      setErrorMessage(message)
-    }
-  }
+  // const deleteMessage = async (id, index) => {
+  //   try {
+  //     // DELETE request to backend with id
+  //     await api.delete(`/messages/${id}`);
+  //     // remove message from the react state
+  //     dispatch({type: 'removeMessage', payload: id})
+  //   } catch ({ message }) {
+  //     setErrorMessage(message)
+  //   }
+  // }
 
 
   // get messages from database once api/server are implemented
