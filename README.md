@@ -1,3 +1,11 @@
+BING MAPS API:
+- Get your own api key at https://www.bingmapsportal.com/ (log in with an outlook account such as a hotmail email address, then click on the My account tab > My keys, copy that key and paste over xxxxx)
+- In .env add: 
+REACT_APP_BING_API_KEY=xxxxxxxxx
+
+![Map](public/maps.PNG)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the basic template.
 
 ## What's in the basic template?
