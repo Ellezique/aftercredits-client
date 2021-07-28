@@ -11,9 +11,11 @@
   max-width: 100vw;
   position: sticky;
   top: 0;
+  
 }
 
 .navbar-container {
+  font-family: 'Limelight', cursive;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,6 +26,7 @@
 
 /*LOGO SECTION */
 .logo-section {
+  font-family: 'Limelight', cursive;
   display: flex;
   justify-content: left; 
   align-items: center;
@@ -50,6 +53,7 @@
   margin-left: 8px;
   font-size: 30px;
 }
+
 
 /*Navbar menu layout for menu items*/
 .nav-menu {
