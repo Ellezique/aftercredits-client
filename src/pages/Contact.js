@@ -40,6 +40,10 @@ let center = { latitude: -27.468150020880756, longitude: 153.02513165952453 }
           //    }
         ]}
 
+        // pushPinsWithInfoboxes ={[
+        //   title: 'AfterCredits',
+        //     description: '(Actually Coder Academy)',
+        // ]}
       />
     </div>
   );
