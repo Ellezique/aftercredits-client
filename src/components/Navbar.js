@@ -18,9 +18,10 @@ function Navbar() {
 
           {/* Navbar Logo and AfterCredits title, linking back to home page. Burger menu hidden. */}
             <Link to='/' className="logo-section">
-              <i className="fas fa-film"> AfterCredits</i>
+              <img className="popcorn" src="./images/popcorn.png"/>
+              AfterCredits
+              {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
             </Link>
-
           {/*If clicked, show burger menu x icon. If not clicked, show burger menu bars icon */}
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
