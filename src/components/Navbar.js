@@ -18,7 +18,7 @@ function Navbar() {
 
           {/* Navbar Logo and AfterCredits title, linking back to home page. Burger menu hidden. */}
             <Link to='/' className="logo-section">
-              <img className="popcorn" src="./images/popcorn.png"/>
+              <img className="popcorn" src="./images/popcorn.png" alt="popcorn" />
               AfterCredits
               {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
             </Link>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Message from './Message'
 import './Chatroom.css'
 
@@ -12,22 +12,7 @@ export default function Chatroom({spoilerRoom}) {
   //   .catch(({ message }) => setErrorMessage(`Error: ${message}`))
   // }, [setMessages])
 
-  // const addMessage = async (event) => {
-  //   event.preventDefault()
-  //   try {
-  //     // send a post request to add the new card to the backend
-  //     const { data } = await api.post("/messages", {
-  //       username,
-  //       text,
-  //       date,
-  //       spoiler
-  //     })
-  //     // update the component state with the new card
-  //     dispatch({type: 'addMessage', payload: data})
-  //   } catch ({ message }) {
-  //     setErrorMessage(`Error: ${message}`)
-  //   }
-  // }
+  
 
   // const deleteMessage = async (id, index) => {
   //   try {
