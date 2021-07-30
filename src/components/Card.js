@@ -2,32 +2,35 @@ import React, { useState } from 'react'
 import Button from '../components/Button'
 import Chatroom from './Chatroom'
 
-export default function Card({title, imgSrc, releaseDate, onClick}) {
+export default function Card({title, imgSrc, releaseDate, onClick, selected}) {
   const [chatroom, setChatroom] = useState(false)
   const [spoilerChatroom, setSpoilerChatroom] = useState(false)
-  const selectedCard = false
+  const selectedDetails = selected
 
   return (
     <div onClick={onClick}>
-      {!selectedCard ?
-        <>
-          <h1>{title}</h1>
-          <img src={imgSrc} alt='movie poster'/>
-        </>
-        :
-        <>
-          <p>{releaseDate}</p>
-          <Button
-            text='Spoiler Chatroom'
-            callback={() => setSpoilerChatroom(!spoilerChatroom)}
-          />
-          <Button
-            text='Chatroom'
-            callback={() => setChatroom(!chatroom)}
-          />
-          {chatroom && !spoilerChatroom && <Chatroom />}
-          {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>}
-        </>
+      <h1>{title}</h1>
+      <img src={imgSrc} alt='movie poster'/>
+      {selectedDetails &&
+      <>
+        <p>{releaseDate}</p>
+        <Button
+          text='Spoiler Chatroom'
+          callback={() => {
+            setSpoilerChatroom(true)
+            setChatroom(false)
+          }}
+        />
+        <Button
+          text='Chatroom'
+          callback={() => {
+            setChatroom(true)
+            setSpoilerChatroom(false)
+          }}
+        />
+        {chatroom && !spoilerChatroom && <Chatroom />}
+        {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>}
+      </>
       }
     </div>
   )

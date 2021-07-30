@@ -6,26 +6,6 @@ export default function Chatroom({spoilerRoom}) {
   //Commented out until we get full api integration
   // const [messages, setMessages] = useState()
 
-  // useEffect(() => {
-  //   api.get("/messages")
-  //   .then(({ data }) => setMessages(data))
-  //   .catch(({ message }) => setErrorMessage(`Error: ${message}`))
-  // }, [setMessages])
-
-  
-
-  // const deleteMessage = async (id, index) => {
-  //   try {
-  //     // DELETE request to backend with id
-  //     await api.delete(`/messages/${id}`);
-  //     // remove message from the react state
-  //     dispatch({type: 'removeMessage', payload: id})
-  //   } catch ({ message }) {
-  //     setErrorMessage(message)
-  //   }
-  // }
-
-
   // get messages from database once api/server are implemented
   const messagesList = [
     {username: 'BigMovieBuff', text: 'I think Marvel movies are the anime of the west, change my mind', date: '10/07/2021', spoiler: false},
