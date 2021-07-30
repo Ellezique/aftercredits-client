@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import Button from './Button'
 import './Message.css'
+import Popup from './Popup'
 
 
 export default function Message({message}) {
   const {username, text, date} = message
   const [editing, setEditing] = useState(false)
   const [options, setOptions] = useState(false)
+  const [popupOpen, setPopupOpen] = useState(false)
   const [messageText, setMessageText] = useState(text)
 
 
@@ -40,11 +42,36 @@ export default function Message({message}) {
               <Button 
                 text='Delete'
                 callback={() => {
-                  setOptions(!options)
+                  setPopupOpen(!popupOpen)
                   console.log('delete')
                 }}
               />           
             </div>
+          }
+          {popupOpen &&
+            <Popup
+              content={
+                <>
+                <p>Are you sure you want to Delete?</p>
+                <Button 
+                  text='Yes'
+                  callback={() => {
+                    setOptions(!options)
+                    setPopupOpen(!popupOpen)
+                    console.log('Yes')
+                  }}
+                />  
+                <Button 
+                  text='No'
+                  callback={() => {
+                    setPopupOpen(!popupOpen)
+                    console.log('No')
+                  }}
+                />  
+              </>
+              }          
+            />
+
           }
         </>
       :

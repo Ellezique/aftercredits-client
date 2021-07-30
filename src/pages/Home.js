@@ -33,6 +33,10 @@ export default function Home() {
     }
   ]
 
+  // useEffect(() => {
+  //   setIsSelected(false)
+  // }, [])
+
   function handleClick(card) {
     console.log(card)
     //hide the other cards
