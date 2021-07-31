@@ -3,13 +3,13 @@ BING MAPS API:
 - In .env add: 
 REACT_APP_BING_API_KEY=xxxxxxxxx
 
-![Map](public/maps.PNG)
 
 Bing maps documentation: https://docs.microsoft.com/en-us/bingmaps/v8-web-control/map-control-api/mapoptions-object
 Bing Maps -React package: https://www.npmjs.com/package/bingmaps-react
 
 
-
+![Breakpoints](public/images/breakpoints.PNG)
+NOTE THE IPADS are 1024px, so tablet breakpoint at 1024
 
 
 

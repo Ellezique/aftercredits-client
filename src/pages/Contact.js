@@ -34,7 +34,7 @@ function Contact() {
           }}   
           pushPinsWithInfoboxes ={[
             {center, metadata: {title: "AfterCredits", description: "Level 3/116 Adelaide St, <br> Brisbane City <br> QLD 4000"}}
-        ]}
+          ]}
         ></BingMapsReact>
       </div>
     </div>

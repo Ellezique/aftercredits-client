@@ -64,13 +64,12 @@
 /*Navbar menu layout for menu items*/
 .nav-menu {
   display: grid; /*columns*/
-  grid-template-columns: repeat(8, auto); /*the number and the widths of columns in a grid layout*/
+  grid-template-columns: repeat(4, auto); /*the number and the widths of columns in a grid layout*/
   grid-gap: 30px; /*Gap between PAGES*/
-  justify-content: right;
-  text-align: center;
+  /* justify-content: right; */
+  /* text-align: center; */
   list-style: none; /*Removes default bullets for list menu items*/
-  width: 80vw; /*spreads items out */
-  margin-right: 20px; /*content 20px away form left edge of screen if view is 1200px wide */
+  width: auto; /*fits items in navbar */
 }
 
 /* .nav-item {
@@ -111,8 +110,9 @@
 }
 
 
-/* MOBILE VIEW and media break points*/
-@media screen and (max-width: 960px) {
+/* MEDIA BREAK POINTS*/
+/*On tablet and smartphone*/
+@media screen and (max-width: 1024px) {
   .NavbarItems {
     position: relative;
   }
@@ -122,11 +122,12 @@
     display: flex;
     flex-direction: column;/*All menu items listed in a column on top of each other*/
     width: 100%; /*drop down menu fills width of screen*/
-    height: 100vh; /*Only what is needed to accommodate drop down menu. Can change to fill the page e.g. 90vh*/
+    height: 100vh; /* Drop menu fills the page. Can change to only what is needed to accommodate drop down menu.*/
     position: absolute;
-    top: 80px;/*Match navbar height*/
+    top: 60px;/*Match navbar height*/
     left: -100%; /*drop down menu sits 100% to the left outside the screen when burger menu is closed*/
     transition: all 0.5s ease; /*The burger menu slides left to right and vice versa when menu is opened and closed*/
+    padding: 0; /*Fits drop down menu into screen i.e. no overflow*/
   }
   /*when burger menu is opened*/
   .nav-menu.active {
@@ -143,24 +144,27 @@
 
   .nav-links:hover {
     background-color: white;
-    color: black;
+    color: red;
+    -webkit-text-fill-color: red; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 3px 3px 8px  black;
+  
   }
 
   /*keep logo left in mobile*/
   .logo-section {
     position: absolute;
-    top: 10px;
-    left: 0;
-    transform: translate(25%, 50%);
+    left: 0; /*moves logo to left of navbar*/
   }
 
   /*show burger-icon in mobile view*/
   .menu-icon {
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 60%); /*position*/
+    top: 0; /*position icon from top */
+    right: 0; /*position icon right*/
+    transform: translate(-100%, 50%); /*position*/
     font-size: 30px;
     cursor: pointer;
   }
