@@ -3,10 +3,7 @@ import BingMapsReact from "bingmaps-react";
 import './Contact.css'
 
 function Contact() {
-
   let center = { latitude: -27.468150020880756, longitude: 153.02513165952453 }
-
-
   return (
     <div>
       <h1>CONTACT PAGE</h1>
@@ -26,7 +23,7 @@ function Contact() {
           showScalebar: true, //A boolean value indicating whether to show the scale bar. 
           showZoomButtons: true, //how the zoom buttons in the map navigation control.
         }}
-        
+      
         max-width="100%"
         viewOptions={{
           center: center,
@@ -44,3 +41,4 @@ function Contact() {
 }
 
 export default Contact
+

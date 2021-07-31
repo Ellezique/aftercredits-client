@@ -5,6 +5,15 @@ REACT_APP_BING_API_KEY=xxxxxxxxx
 
 ![Map](public/maps.PNG)
 
+Bing maps documentation: https://docs.microsoft.com/en-us/bingmaps/v8-web-control/map-control-api/mapoptions-object
+Bing Maps -React package: https://www.npmjs.com/package/bingmaps-react
+
+
+
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the basic template.
 
