@@ -1,6 +1,8 @@
+/* https://www.tutorialspoint.com/how-to-create-a-navigation-bar-with-left-aligned-and-right-aligned-links-with-css */
+
 .navbar {
-  background: black;
-  color: white;
+  background: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,7 +14,7 @@
   position: sticky;
   top: 0;
   border-radius: 0.2rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 hsla(0, 0%, 0%, 0.2), 0 6px 20px 0 hsla(0, 0%, 0%, 0.19);
   
 }
 
@@ -35,7 +37,7 @@
   font-size: 40px; 
   margin-left: 70px; /*content 20px away form left edge of screen if view is 1200px wide*/
   text-decoration: none; /*Removes link's default underline*/
-  color: white; /*Overide default link purple/blue color*/
+  color: hsl(0, 0%, 100%); /*Overide default link purple/blue color*/
   cursor: pointer; /*Cursor changes to pointer when over Logo*/ 
 
   /* Keeps logo and text on same line: */
@@ -47,17 +49,17 @@
 }
 
 .logo-section:hover {
-  color: white;
+  color: hsl(0, 0%, 100%);
   /* text-shadow: 4px 4px 10px #fffb00 */
   text-shadow: /*lights up text */
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px #fffb00,
-    0 0 82px #fffb00,
-    0 0 92px #fffb00,
-    0 0 102px #ff0000,
-    0 0 151px #ff0000;
+    0 0 7px hsl(0, 0%, 100%),
+    0 0 10px hsl(0, 0%, 100%),
+    0 0 21px hsl(0, 0%, 100%),
+    0 0 42px hsl(59, 100%, 50%),
+    0 0 82px hsl(59, 100%, 50%),
+    0 0 92px hsl(59, 100%, 50%),
+    0 0 102px hsl(0, 100%, 50%),
+    0 0 151px hsl(0, 100%, 50%);
 }
 
 
@@ -81,25 +83,32 @@
   align-items: center;
   padding: 10px;
   height: 75px; /*kept same as nav-item*/
-  color: white; /*Changes default purple/blue link color*/
+  color: hsl(0, 0%, 100%); /*Changes default purple/blue link color*/
   text-decoration: none; /*Removes default link underline*/
 }
 
 .nav-links:hover {
-  color: red;
+  color: hsl(0, 100%, 50%);
   /* text-shadow: 7px 6px 14px  red; */
-  text-shadow: 0 0 5px black, 0 0 10px black, 0 0 15px black, 0 0 20px black, 0 0 30px #ff0000, 0 0 40px #ff0000, 0 0 55px #ff0000, 0 0 75px #ff0000, 2px 2px 2px rgba(206,0,0,0);
-
+  text-shadow: 
+  0 0 5px hsl(0, 0%, 0%), 
+  0 0 10px hsl(0, 0%, 0%), 
+  0 0 15px black, 0 0 20px black, 
+  0 0 30px hsl(0, 100%, 50%), 
+  0 0 40px hsl(0, 100%, 50%), 
+  0 0 55px hsl(0, 100%, 50%), 
+  0 0 75px hsl(0, 100%, 50%), 
+  2px 2px 2px hsla(0, 100%, 40%, 0);
 }
 
 /*burgermenu bars icon*/
 .fa-bars {
-  color: white;
+  color: hsl(0, 0%, 100%);
   font-size: 40px; /*larger icon*/
 }
 /*burgemenu x icon*/
 .fa-times {
-  color: white;
+  color: hsl(0, 0%, 100%);
   font-size: 40px; /*larger icon*/
 }
 
@@ -111,12 +120,11 @@
 
 
 /* MEDIA BREAK POINTS*/
-/*On tablet and smartphone*/
+/*TABLET*/
 @media screen and (max-width: 1024px) {
   .NavbarItems {
     position: relative;
   }
-/*MOBILE Navbar menu responsive layout for menu items*/
   /*default styling for when menu is closed plus transition*/
   .nav-menu {
     display: flex;
@@ -131,7 +139,7 @@
   }
   /*when burger menu is opened*/
   .nav-menu.active {
-    background: #252525;
+    background: hsl(0, 0%, 15%);
     left: 0; /*Makes burger menu slide from left -100, rigth until it fills the screen width 100%*/
     z-index: 1;/*z-index property specifies the stack order of an element. An element with greater stack order is always in front of an element with a lower stack order. Note: z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky).*/
   }
@@ -143,12 +151,12 @@
   }
 
   .nav-links:hover {
-    background-color: white;
-    color: red;
-    -webkit-text-fill-color: red; /* Will override color (regardless of order) */
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 100%, 50%);
+    -webkit-text-fill-color: hsl(0, 100%, 50%); /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: black;
-    text-shadow: 3px 3px 8px  black;
+    -webkit-text-stroke-color: hsl(0, 0%, 0%);
+    text-shadow: 3px 3px 8px  hsl(0, 0%, 0%);
   
   }
 
@@ -170,5 +178,11 @@
   }
 }
 
+/* MEDIA BREAK POINTS*/
+/*MOBILE*/
+@media screen and (max-width: 767px) {
 
+
+
+}
 
