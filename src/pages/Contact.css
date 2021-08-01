@@ -1,6 +1,67 @@
+/* CONTACT FORM STYLING */
+.contact-container { 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%; 
+  margin-bottom: 10px;
+}
+.form { 
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  /* margin-left: 0.5%;
+  margin-right: 0.5%  */
+}
+
+h1 {
+  margin-top: 50px;
+  font-family: 'Limelight', cursive;
+}
+/*Contact form*/
+input[type=text], input[type=email], select, textarea  {
+  width: 100%; /* width of text entry areas inside the form */
+  padding: 15px;  
+  border: 1px solid hsla(0, 0%, 0%, 0.685);
+  border-radius: 0.4rem;  /* Rounded borders */
+  box-sizing: border-box; /* ensures that padding and width stay in place */
+  margin-top: 5px; 
+  margin-bottom: 18px; 
+  resize: vertical; /* The user can resize the textarea vertically, if they wish */
+  font-family: 'STIX Two Text', serif;
+  font-size: 15px;
+  color: hsl(0, 0%, 0%);
+}
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: hsla(51, 100%, 50%, 0.856);
+  color:  hsl(0, 0%, 0%);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 15px; 
+  font-family: 'Limelight', cursive;
+  font-size: 18px;
+}
+/* When moving the mouse over the submit button, change color */
+input[type=submit]:hover {
+  background-color: hsla(0, 100%, 50%, 0.89);
+}
+/* Add a background color to the form */
+form {
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 100%);
+  font-family: 'Limelight', cursive;
+  font-size: 18px;
+}
+
+
+
+/* MAP STYLING */
 .addressbox {
   padding: 1rem;
   margin-bottom: 1rem;
+  margin-top: 5rem;
   background: white;
   max-width: 240px;
   height: auto;
