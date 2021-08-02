@@ -25,18 +25,14 @@
     <title>AfterCredits</title>
   </head>
   <body>
-   
-  
+    <!-- Netlify form added to index html file just after the opening body tag to ensure that Netlify detects the form. The hidden attribute hides it from screen readers and users. -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text"  name="first_name">
+      <input type="text"  name="last_name">
+      <input type="email" name="email">
+      <textarea name="message"></textarea>
+    </form>
     <div id="root">
-
-       <!-- Netlify form added to index html file just after the opening body tag to ensure that Netlify detects the form. The hidden attribute hides it from screen readers and users. -->
-      <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-        <input type="text"  name="first_name">
-        <input type="text"  name="last_name">
-        <input type="email" name="email">
-        <textarea name="message"></textarea>
-      </form>
-
     </div>
   </body>
 </html>
