@@ -1,0 +1,26 @@
+/* MAP STYLING */
+.addressbox {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
+  background: white;
+  max-width: 240px;
+  height: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* opacity:0.5; */
+  line-height: 0.3rem;
+  /* transition: all 0.5s ease */
+  
+}
+
+.addressbox h3 {
+  font-family: 'Limelight', cursive;
+  font-size: 1.8 rem;
+  line-height: 0.8rem;
+  /* transform: translate(-100%, 60%); */
+}
+
+.bingmap {
+  border-radius: 0.2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
