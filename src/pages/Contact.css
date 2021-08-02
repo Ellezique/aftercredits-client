@@ -15,18 +15,18 @@
 }
  
 
-h4 {
+.credits h4 {
   margin-bottom: 5px;
   font-size: 15px;
 }
 
-a {
+.credits a {
   font-size: 15px;
   font-family: 'STIX Two Text', serif;
   margin-bottom: 50px;
   color: black;
 }
 
-a:hover {
+.credits a:hover {
  color:red;
 }
