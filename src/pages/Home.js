@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div>
       <h1>HOME PAGE</h1>
-      
+
       {/* FETCH 2 IDs FROM BACKEND AND PASS TO MOVIE FETCH */}
       {/* PUT MOVIE FETCH RESPONSE INTO CARDS AND DISPLAY ALL */}
       {/* DISPLAY ONLY TITLE AND IMAGE ON EACH CARD */}
@@ -59,14 +59,14 @@ export default function Home() {
       {!isSelected ?
         // ALL CARDS
         cards.map((card, index) => {
-          const {title, imgSrc} = card.data
+          const { title, imgSrc } = card.data
           return (
-            <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)}/>
+            <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)} />
           )
         })
         :
         // SELECTED CARD
-        <Card title={selectedCard.title} imgSrc={selectedCard.imgSrc} releaseDate={selectedCard.releaseDate} selected={true}/>
+        <Card title={selectedCard.title} imgSrc={selectedCard.imgSrc} releaseDate={selectedCard.releaseDate} selected={true} />
       }
     </div>
   )

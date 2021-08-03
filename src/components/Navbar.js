@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 function Navbar() {
-  
+
   //set state
   const [click, setClick] = useState(false)
   //when clicked, change the state to the opposite of set state i.e. change from false to true
@@ -26,32 +26,32 @@ function Navbar() {
             {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
           </Link>
 
-            
 
-            {/* Navbar Links: */}
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+
+          {/* Navbar Links: */}
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>
-                <Link to='/SignUp' className='nav-links' onClick={closeBurgerMenu}>
-                  SIGN UP
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to='/LogIn' className='nav-links' onClick={closeBurgerMenu}>
-                  LOG IN
-                </Link>
-              </li>
-  
-              <li className='nav-item' id="pushed">
-                <Link to='/' className='nav-links' onClick={closeBurgerMenu}>
-                  HOME
-                </Link>
-              </li>
-              <li className='nav-item'>
-                <Link to='/Contact' className='nav-links' onClick={closeBurgerMenu}>
-                  CONTACT
-                </Link>
-              </li>
-            </ul>
+              <Link to='/SignUp' className='nav-links' onClick={closeBurgerMenu}>
+                SIGN UP
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/LogIn' className='nav-links' onClick={closeBurgerMenu}>
+                LOG IN
+              </Link>
+            </li>
+
+            <li className='nav-item' id="pushed">
+              <Link to='/' className='nav-links' onClick={closeBurgerMenu}>
+                HOME
+              </Link>
+            </li>
+            <li className='nav-item'>
+              <Link to='/Contact' className='nav-links' onClick={closeBurgerMenu}>
+                CONTACT
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     </>

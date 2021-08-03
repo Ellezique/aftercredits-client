@@ -28,7 +28,7 @@ function ContactForm() {
             <p>
               <input type="submit" value="Submit" />
             </p>
-          </form>     
+          </form>
         </div>
       </div>
     </div>

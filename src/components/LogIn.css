@@ -1,0 +1,18 @@
+.logincontainer {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+
+/* .login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin: 10px 0px;
+}
+
+#submit {
+  margin: 10px;
+} 
