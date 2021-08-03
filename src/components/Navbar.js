@@ -25,9 +25,6 @@ function Navbar() {
             AfterCredits
             {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
           </Link>
-
-
-
           {/* Navbar Links: */}
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li className='nav-item'>

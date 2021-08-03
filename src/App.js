@@ -8,9 +8,11 @@ import SignUp from './pages/SignUp'
 import Contact from './pages/Contact'
 
 const App = () => {
+  // const [loggedInUser, setLoggedInUser] = useState("")
   return (
     <div className="App">
       <Router >
+        {/* <Navbar loggedInUser={loggedinUser}/> */}
         <Navbar />
         <Switch>
           <Route exact path='/' component={Home} />

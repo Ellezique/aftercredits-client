@@ -45,7 +45,7 @@ input[type=submit] {
 }
 /* When moving the mouse over the submit button, change color */
 input[type=submit]:hover {
-  background-color: hsla(0, 100%, 50%, 0.89);
+  background-color: hsla(0, 100%, 50%);
 }
 /* Add a background color to the form */
 form {
