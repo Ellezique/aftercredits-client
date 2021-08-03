@@ -10,15 +10,15 @@ import Contact from './pages/Contact'
 const App = () => {
   return (
     <div className="App">
-        <Router >
-          <Navbar />
-          <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/LogIn' component={LogIn} />
-              <Route path='/SignUp' component={SignUp} />
-              <Route path='/Contact' component={Contact} />
-          </Switch>
-        </Router>
+      <Router >
+        <Navbar />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/LogIn' component={LogIn} />
+          <Route path='/SignUp' component={SignUp} />
+          <Route path='/Contact' component={Contact} />
+        </Switch>
+      </Router>
     </div>
   )
 }
