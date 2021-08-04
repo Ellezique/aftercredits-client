@@ -18,13 +18,13 @@ const App = () => {
     setLoggedInUser(name)
   }
 
-  // to get data from rails api 
-  useEffect(()=>{
-    console.log("effect")
-    getMessages()
-    .then((message) => console.log(message))
-    .catch(error => console.log(error))
-  },[])
+  // to get data from rails api. See src/services folder. 
+  // useEffect(()=>{
+  //   console.log("effect")
+  //   getMessages()
+  //   .then((messages) => console.log(messages))
+  //   .catch(error => console.log(error))
+  // },[])
 
 //the chatroom messages for each card & creating a new message, each need to render with props in routing below. See T3W9- Thursday Morning- Brisbane lecture*/
 //probably need to add a route for the card component as well.
