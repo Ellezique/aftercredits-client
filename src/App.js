@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar.js'
 import NotFound from './components/NotFound'
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 //import './App.css'
 import Home from './pages/Home'
 import LogIn from './pages/LogIn'
@@ -48,13 +50,6 @@ return (
       </BrowserRouter>
 
 
-    </div>
-  )
-}
-
-export default App
-
-
       {/* <Router >
         <Navbar />
         <Switch>
@@ -64,3 +59,11 @@ export default App
           <Route path='/Contact' component={Contact} />
         </Switch>
       </Router> */}
+
+    </div>
+  )
+}
+
+export default App
+
+
