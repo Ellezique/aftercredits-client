@@ -21,23 +21,39 @@ const App = () => {
   //   fetch("")
   // },[])
 
-
-  return (
+//the chatroom messages for each card & creating a new message, each need to render with props in routing below. See T3W9- Thursday Morning- Brisbane lecture*/
+//May need to add a route for the card component as well.
+return (
     <div className="App">
       <BrowserRouter>
       <Navbar loggedInUser={loggedInUser} activateUser={activateUser}/>
         <Switch>
-          {/* <Route exact path="/">
-            <Redirect to="cards"/>
-          </Route> */}
             <Route exact path='/' component={Home} />
-            {/* <Route exact path='/cards' component={Cards} /> */}
-            <Route exact path='/LogIn' component={LogIn} />
+            {/* <Route exact path="/cards/:id">
+              <Redirect to="/cards/:id/messages"/>
+            </Route> */}
+            {/* <Route exact path='/messages' 
+              render={(props)=> <Messages{...props} messageList={messageList}/>}
+              /> */}
+            {/* <Route exact path="/newmessage"
+              render{()=> <MessageForm loggedInUser={loggedInUser} addMessage={addMessage}/>}
+            /> */}
+            <Route exact path='/LogIn' 
+              render={(props)=> <LogIn {...props} activateUser={activateUser}/>}
+            />
             <Route exact path='/SignUp' component={SignUp} />
             <Route exact path='/Contact' component={Contact} />
             <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
+
+
+    </div>
+  )
+}
+
+export default App
+
 
       {/* <Router >
         <Navbar />
@@ -48,8 +64,3 @@ const App = () => {
           <Route path='/Contact' component={Contact} />
         </Switch>
       </Router> */}
-    </div>
-  )
-}
-
-export default App

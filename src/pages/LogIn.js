@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 
 
-const LogIn =({activateUser})=> {
+const LogIn =({history, activateUser})=> {
+  console.log(history)
   const initialFormData = {
     email: "",
     password: "" /*,
@@ -23,6 +24,7 @@ const LogIn =({activateUser})=> {
     // console.log("You clicked login: ", formData.email)
     // console.log(formData.password)
     activateUser(formData.email)
+    return history.push("/") //redirects user to home page after log in submit
   }
 
   return (

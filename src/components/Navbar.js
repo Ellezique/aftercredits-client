@@ -15,8 +15,8 @@ const Navbar = ({loggedInUser, activateUser}) => {
         {loggedInUser ? 
           <>
               {loggedInUser}
-              {/* <Link to='/card/messages'>See chatroom messages for a select movie card </Link> */}
-              {/* <Link to='/card/newmessage'>Post a new message to a selected movie card</Link> */}
+              {/* <Link to='/card/messages'>See chatroom messages for a select movie card </Link>      DONT PUT THIS LINK IN NAVBAR, have it in the relevant component, see NotFound and App.js as example*/}
+              {/* <Link to='/card/newmessage'>Post a new message to a selected movie card</Link>  DONT PUT THIS LINK IN NAVBAR, have it in the relevant component, see NotFound and App.js as example*/}
               <Link to="/" onClick={logout}>Log Out</Link>
           </>
         : <> 
