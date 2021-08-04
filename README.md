@@ -1,3 +1,5 @@
+PORT=8000
+
 BING MAPS API:
 - Get your own api key at https://www.bingmapsportal.com/ (log in with an outlook account such as a hotmail email address, then click on the My account tab > My keys, copy that key and paste over xxxxx)
 - In .env add: 
