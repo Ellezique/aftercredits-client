@@ -1,5 +1,6 @@
 import React from 'react'
 // import './Navbar.css'
+import { Link } from 'react-router-dom'
 
 const Navbar = ({loggedInUser, activateUser}) => {
   function logout(e){
@@ -14,16 +15,17 @@ const Navbar = ({loggedInUser, activateUser}) => {
         {loggedInUser ? 
           <>
               {loggedInUser}
-              <a href="/" onClick={logout}>Logout</a>
+              {/* <Link to='/card/messages'>See chatroom messages for a select movie card </Link> */}
+              {/* <Link to='/card/newmessage'>Post a new message to a selected movie card</Link> */}
+              <Link to="/" onClick={logout}>Log Out</Link>
           </>
         : <> 
-              <a href="/">Sign Up</a>
-              <a href="/">Log In</a>
-              {/* Guest */}
+              <Link to='/SignUp'>Sign Up</Link>
+              <Link to='/LogIn'>Log In</Link>
           </>
         }
-         <a href="/">Home</a>
-        <a href="/">Contact</a>
+        <Link to='/'>Home</Link>
+        <Link to='/Contact'>Contact</Link>
     </div>
   )
 }

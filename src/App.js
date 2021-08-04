@@ -24,8 +24,8 @@ const App = () => {
 
   return (
     <div className="App">
-      <Navbar loggedInUser={loggedInUser} activateUser={activateUser}/>
       <BrowserRouter>
+      <Navbar loggedInUser={loggedInUser} activateUser={activateUser}/>
         <Switch>
           {/* <Route exact path="/">
             <Redirect to="cards"/>
