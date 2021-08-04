@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-// import React, { useEffect, useState } from 'react'
+// import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar.js'
 import NotFound from './components/NotFound'
-// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 // import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import {getMessages} from './services/messagesService.js'
 //import './App.css'
 import Home from './pages/Home'
 import LogIn from './pages/LogIn'
@@ -18,9 +18,12 @@ const App = () => {
     setLoggedInUser(name)
   }
 
-  // to get data from rails api 
+  // to get data from rails api. See src/services folder. 
   // useEffect(()=>{
-  //   fetch("")
+  //   console.log("effect")
+  //   getMessages()
+  //   .then((messages) => console.log(messages))
+  //   .catch(error => console.log(error))
   // },[])
 
 //the chatroom messages for each card & creating a new message, each need to render with props in routing below. See T3W9- Thursday Morning- Brisbane lecture*/
