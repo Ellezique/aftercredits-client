@@ -35,10 +35,11 @@ const Navbar = ({loggedInUser, activateUser}) => {
                   <div className={click ? 'nav-menu active' : 'nav-menu'}>
                             {loggedInUser ? 
                               <>
-                                  {loggedInUser}
+                                 {loggedInUser}
+                                                                   
                                   {/* <Link to='/card/messages'>See chatroom messages for a select movie card </Link>      DONT PUT THIS LINK IN NAVBAR, have it in the relevant component, see NotFound and App.js as example*/}
                                   {/* <Link to='/card/newmessage'>Post a new message to a selected movie card</Link>  DONT PUT THIS LINK IN NAVBAR, have it in the relevant component, see NotFound and App.js as example*/}
-                                  <Link to="/" onClick={logout}>Log Out</Link>
+                                  <Link to="/" className='nav-links' onClick={logout}>Log Out</Link>
                               </>
                             : <> 
                                   <Link to='/SignUp' className='nav-links' onClick={closeBurgerMenu}>Sign Up</Link>

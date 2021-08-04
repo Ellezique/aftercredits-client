@@ -1,4 +1,5 @@
 /* DESKTOP */
+
 .navbar {
   background: hsl(0, 0%, 0%);
   color: hsl(0, 0%, 100%);
@@ -118,6 +119,7 @@
 /* MEDIA BREAK POINTS*/
 /*TABLET*/
 @media screen and (max-width: 1024px) {
+
   .NavbarItems {
     position: relative;
   }
@@ -128,11 +130,12 @@
     width: 100%; /*drop down menu fills width of screen*/
     height: 100vh; /* Drop menu fills the page. Can change to only what is needed to accommodate drop down menu.*/
     position: absolute;
-    top: 60px;/*Match navbar height*/
+    top: 80px;/*Match navbar height*/
     left: -100%; /*drop down menu sits 100% to the left outside the screen when burger menu is closed*/
     transition: all 0.5s ease; /*The burger menu slides left to right and vice versa when menu is opened and closed*/
     padding: 0; /*Fits drop down menu into screen i.e. no overflow*/
   }
+
   /*when burger menu is opened*/
   .nav-menu.active {
     background: hsl(0, 0%, 15%);
@@ -177,7 +180,7 @@
 /* MEDIA BREAK POINTS*/
 /*MOBILE*/
 @media screen and (max-width: 767px) {
-  
+
   .navbar { 
     height: 50px; /*accomodate popcorn logo size*/
   }
