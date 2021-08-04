@@ -24,14 +24,20 @@ const App = () => {
   // },[])
 
 //the chatroom messages for each card & creating a new message, each need to render with props in routing below. See T3W9- Thursday Morning- Brisbane lecture*/
-//May need to add a route for the card component as well.
+//probably need to add a route for the card component as well.
+//Below has a commented out find() function, that should ideally be extracted into its own function T3W9- Thursday Morning- Brisbane @ 2:10:00
+
+  // function getMessage(id){
+  //   return messageList.find(m=> m.id === parseInt(id))
+  // }
+
 return (
     <div className="App">
       <BrowserRouter>
       <Navbar loggedInUser={loggedInUser} activateUser={activateUser}/>
         <Switch>
             <Route exact path='/' component={Home} />
-            {/* <Route exact path="/cards/:id">
+            {/*??? <Route exact path="/cards/:id">
               <Redirect to="/cards/:id/messages"/>
             </Route> */}
             {/* <Route exact path='/messages' 
@@ -39,6 +45,10 @@ return (
               /> */}
             {/* <Route exact path="/newmessage"
               render{()=> <MessageForm loggedInUser={loggedInUser} addMessage={addMessage}/>}
+            /> */}
+            {/* <Route exact path="messages/:id"
+              render={(props)=> <Message {...props}
+                message={getMessage(props.match.params.id)}/>}
             /> */}
             <Route exact path='/LogIn' 
               render={(props)=> <LogIn {...props} activateUser={activateUser}/>}

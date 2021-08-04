@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 
 const LogIn =({history, activateUser})=> {
   console.log(history)
@@ -38,6 +38,7 @@ const LogIn =({history, activateUser})=> {
           <br></br>
           <input type="submit" value="Login" />
       </form>
+      <Link to='/SignUp'>Sign Up</Link>
     </div>
   )
 }
