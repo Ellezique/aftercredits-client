@@ -1,9 +1,9 @@
 import React from 'react'
 
+// NETLIFY CONTACT FORM
 function ContactForm() {
   return (
     <div>
-      {/* <!--CONTACT FORM--> */}
       <div className="form">
         <div className="formbox">
           <h1>Contact Form</h1>

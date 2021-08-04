@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const LogIn =()=> {
+const LogIn =({activateUser})=> {
   const initialFormData = {
     email: "",
     password: "" /*,
@@ -20,8 +20,9 @@ const LogIn =()=> {
 
   function handleSubmit(e){
     e.preventDefault()
-    console.log("You clicked login: ", formData.email)
-    console.log(formData.password)
+    // console.log("You clicked login: ", formData.email)
+    // console.log(formData.password)
+    activateUser(formData.email)
   }
 
   return (
