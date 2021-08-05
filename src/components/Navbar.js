@@ -27,7 +27,7 @@ const Navbar = ({loggedInUser, activateUser}) => {
              <i className={click ? "fas fa-times" : "fas fa-bars"} />
            </div>
             {/* Navbar Logo and AfterCredits title, linking back to home page. Burger menu hidden. */}
-            <Link to='/' className="logo-section">
+            <Link to='/reload' className="logo-section">
               <img className="popcorn" src="./images/popcorn.png" alt="popcorn" />
               AfterCredits
             {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
@@ -39,14 +39,14 @@ const Navbar = ({loggedInUser, activateUser}) => {
                                                                    
                                   {/* <Link to='/card/messages'>See chatroom messages for a select movie card </Link>      DONT PUT THIS LINK IN NAVBAR, have it in the relevant component, see NotFound and App.js as example*/}
                                   {/* <Link to='/card/newmessage'>Post a new message to a selected movie card</Link>  DONT PUT THIS LINK IN NAVBAR, have it in the relevant component, see NotFound and App.js as example*/}
-                                  <Link to="/" className='nav-links' onClick={logout}>Log Out</Link>
+                                  <Link to="/reload" className='nav-links' onClick={logout}>Log Out</Link>
                               </>
                             : <> 
                                   <Link to='/SignUp' className='nav-links' onClick={closeBurgerMenu}>Sign Up</Link>
                                   <Link to='/LogIn' className='nav-links' onClick={closeBurgerMenu}>Log In</Link>
                               </>
                             }
-                            <Link to='/' className='nav-links' onClick={closeBurgerMenu}>Home</Link>
+                            <Link to='/reload' className='nav-links' onClick={closeBurgerMenu}>Home</Link>
                             <Link to='/Contact' className='nav-links' onClick={closeBurgerMenu}>Contact</Link>
                   </div>
           </div>
