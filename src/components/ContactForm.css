@@ -31,6 +31,7 @@ input[type=text], input[type=email], input[type=password], select, textarea  {
   font-family: 'STIX Two Text', serif;
   font-size: 15px;
   color: hsl(0, 0%, 0%);
+  background-color: hsla(51, 100%, 50%, 0.144);
 }
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
