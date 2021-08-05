@@ -40,9 +40,9 @@ const LogIn =({history, activateUser})=> {
           <input type="password" name="password" id="password" onChange={handleFormData} />
           {/* <input type="text" name="username" id="username" onChange={handleFormData}/> */}
           <br></br>
-          <label htmlFor="password_confirmation">Password Confirmation:</label>
+          {/* <label htmlFor="password_confirmation">Password Confirmation:</label>
           <input type="password_confirmation" name="password_confirmation" id="password_confirmation" onChange={handleFormData} />
-          <br></br>
+          <br></br> */}
           <input type="submit" value="Login" />
       </form>
       <Link to='/SignUp'>Sign Up</Link>
