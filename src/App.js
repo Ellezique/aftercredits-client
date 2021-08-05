@@ -23,7 +23,12 @@ const App = () => {
   // to get data from rails api. See src/services folder. 
   useEffect(()=>{
     // getMessages()
-    // .then((message) => console.log(message))
+    // .then((messages) =>{
+    //   dispatchEvent({
+    //     type: "setMessageList",
+    //     data: messages
+    //   })
+    // })
     // .catch(error => console.log(error))
   },[])
 
