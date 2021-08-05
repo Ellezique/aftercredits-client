@@ -19,7 +19,7 @@
   font-family: 'Limelight', cursive;
 }
 /*Contact form*/
-input[type=text], input[type=email], select, textarea  {
+input[type=text], input[type=email], input[type=password], select, textarea  {
   width: 100%; /* width of text entry areas inside the form */
   padding: 15px;  
   border: 1px solid hsla(0, 0%, 0%, 0.685);

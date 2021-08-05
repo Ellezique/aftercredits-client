@@ -10,15 +10,17 @@ function Contact() {
   return (
     <>
       <ContactForm></ContactForm>
+      <br></br>
+      
       <Map></Map>
       <div className="credits">
-        <h1>Project Build By:</h1>
+        <h1>Project Built By:</h1>
         <h4>Gizelle</h4>
-        <a className="GitHub" href="https://github.com/Ellezique">
+        <a className="hyperlink" href="https://github.com/Ellezique" target="_blank">
           https://github.com/Ellezique
         </a>
         <h4>Chris</h4>
-        <a className="GitHub" href="https://github.com/chris-gibs">
+        <a className="hyperlink" href="https://github.com/chris-gibs" target="_blank">
           https://github.com/chris-gibs
         </a>
       </div>

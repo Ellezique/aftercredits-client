@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+//Styling is handled by ContactForm.css
 
 // USERS FROM RAILS SEEDS FILE:
 // (username: "Gizelle", email: "gizelle205@hotmail.com", password: "password123456", password_confirmation: "password123456")
 // (username: "testuser", email: "test@email.com", password: "123456", password_confirmation: "123456")
 
-const LogIn =({history, activateUser})=> {
+const LogIn = ({ history, activateUser }) => {
   console.log(history)
   const initialFormData = {
     email: "",
@@ -15,15 +16,15 @@ const LogIn =({history, activateUser})=> {
 
   const [formData, setFormData] = useState(initialFormData)
 
-  function handleFormData(e){
+  function handleFormData(e) {
     setFormData({
       ...formData,
       //use e.tar.get.id or e.target.name
-      [e.target.name] : e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault()
     // console.log("You clicked login: ", formData.email)
     // console.log(formData.password)
@@ -33,19 +34,27 @@ const LogIn =({history, activateUser})=> {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Email:</label>
-          <input type="email" name="email" id="email" onChange={handleFormData}/>
-          <label htmlFor="password">Password:</label>
-          <input type="password" name="password" id="password" onChange={handleFormData} />
-          {/* <input type="text" name="username" id="username" onChange={handleFormData}/> */}
-          <br></br>
-          {/* <label htmlFor="password_confirmation">Password Confirmation:</label>
+      <div className="form">
+        <div className="formbox">
+          <h1>Log In</h1>
+          <p>If you already have an account, please log in:</p>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="email">Email:</label>
+            <input type="email" name="email" id="email" onChange={handleFormData} />
+            <label htmlFor="password">Password:</label>
+            <input type="password" name="password" id="password" onChange={handleFormData} />
+            {/* <input type="text" name="username" id="username" onChange={handleFormData}/> */}
+            <br></br>
+            {/* <label htmlFor="password_confirmation">Password Confirmation:</label>
           <input type="password_confirmation" name="password_confirmation" id="password_confirmation" onChange={handleFormData} />
           <br></br> */}
-          <input type="submit" value="Login" />
-      </form>
-      <Link to='/SignUp'>Sign Up</Link>
+            <input type="submit" value="Log In" />
+          </form>
+          <br></br>
+          <p>If you are a new user, you will need to create an account before you can join the chatrooms:</p>
+          <Link to='/SignUp' className="hyperlink">Sign Up</Link>
+        </div>
+      </div>
     </div>
   )
 }

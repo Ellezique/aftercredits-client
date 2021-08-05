@@ -1,4 +1,5 @@
 import React from 'react'
+//Styling is handled by ContactForm.css
 
 // NETLIFY CONTACT FORM
 function ContactForm() {
@@ -7,6 +8,7 @@ function ContactForm() {
       <div className="form">
         <div className="formbox">
           <h1>Contact Form</h1>
+          <p>You may contact administrators by completing and submitting this contact form:</p>
           <form name="contact" method="post" data-netlify="true">
             <input type="hidden" name="form-name" value="contact" />
             <p>

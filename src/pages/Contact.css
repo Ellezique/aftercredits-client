@@ -1,5 +1,14 @@
+p {
+  font-family: 'STIX Two Text', serif;
+}
+
+h1 {
+  font-family: 'Limelight', cursive;
+  font-size: 1.5rem;
+}
+
 .credits {
-  width: 100%; /* width of text entry areas inside the form */
+  width: auto; /* width of text entry areas inside the form */
   margin-top: 50px;
   margin-bottom: 100px;
   padding-top: 10px;
@@ -18,15 +27,17 @@
 .credits h4 {
   margin-bottom: 5px;
   font-size: 15px;
+  
 }
 
-.credits a {
+.hyperlink {
   font-size: 15px;
   font-family: 'STIX Two Text', serif;
   margin-bottom: 50px;
   color: black;
+  background: hsla(51, 100%, 50%, 0.144);
 }
 
-.credits a:hover {
+.hyperlink:hover {
  color:red;
 }
