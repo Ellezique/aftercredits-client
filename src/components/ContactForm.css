@@ -14,7 +14,14 @@
   margin-right: 0.5%  */
 }
 
-.formbox h1 {
+form {
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 100%);
+  font-family: 'Limelight', cursive;
+  font-size: 18px;
+}
+
+ h1 {
   margin-top: 50px;
   font-family: 'Limelight', cursive;
 }
@@ -31,6 +38,7 @@ input[type=text], input[type=email], input[type=password], select, textarea  {
   font-family: 'STIX Two Text', serif;
   font-size: 15px;
   color: hsl(0, 0%, 0%);
+  background-color: hsla(51, 100%, 50%, 0.144);
 }
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
@@ -47,10 +55,4 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: hsla(0, 100%, 50%);
 }
-/* Add a background color to the form */
-form {
-  border-radius: 5px;
-  background-color: hsl(0, 0%, 100%);
-  font-family: 'Limelight', cursive;
-  font-size: 18px;
-}
+
