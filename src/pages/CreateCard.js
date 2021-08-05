@@ -27,6 +27,15 @@ export default function CreateCard() {
           console.log('new card, what do you think?')
         }}
       />
+      {/*
+        import { useHistory } from 'react-router'
+        onClick={() => history.go('/')}
+        const history = useHistory()
+        () => {
+                              ()
+                              history.go('/')
+                            }
+      */}
     </div>
   )
 }
