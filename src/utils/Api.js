@@ -28,7 +28,7 @@ const movieConfig = {
     'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
   }
 }
-const googleConfig = {
+const bingConfig = {
   baseURL: '',
   headers: {
     'Authorisation': BING_API_KEY,
@@ -112,4 +112,3 @@ const Api = {
   }
 }
 export default Api
-

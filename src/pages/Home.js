@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Card from '../components/Card'
+import Button from '../components/Button'
+import { Link } from 'react-router-dom'
 // import Api from '../utils/Api'
 
 export default function Home() {
@@ -33,10 +35,6 @@ export default function Home() {
     }
   ]
 
-  // useEffect(() => {
-  //   setIsSelected(false)
-  // }, [])
-
   function handleClick(card) {
     console.log(card)
     //hide the other cards
@@ -58,12 +56,19 @@ export default function Home() {
 
       {!isSelected ?
         // ALL CARDS
-        cards.map((card, index) => {
-          const { title, imgSrc } = card.data
-          return (
-            <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)} />
-          )
-        })
+        <>
+          {cards.map((card, index) => {
+            const { title, imgSrc } = card.data
+            return (
+                <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)} />
+            )
+          })}
+          <Link to='/CreateCard'>
+            <Button
+              text='Create Card'
+            />
+          </Link>
+        </>
         :
         // SELECTED CARD
         <Card title={selectedCard.title} imgSrc={selectedCard.imgSrc} releaseDate={selectedCard.releaseDate} selected={true} />

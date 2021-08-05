@@ -11,6 +11,7 @@ import Home from './pages/Home'
 import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
 import Contact from './pages/Contact'
+import CreateCard from './pages/CreateCard'
 
 const App = () => {
   const [loggedInUser, setLoggedInUser] = useState("")
@@ -58,6 +59,7 @@ return (
             />
             <Route exact path='/SignUp' component={SignUp} />
             <Route exact path='/Contact' component={Contact} />
+            <Route exact path='/CreateCard' component={CreateCard} />
             <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

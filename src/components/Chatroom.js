@@ -44,7 +44,6 @@ export default function Chatroom({spoilerRoom}) {
           callback={() => {
             // UPDATE MESSAGES ON BACKEND
             Api.serverApi.message.create(text)
-          
             console.log('post')
           }}
         />
