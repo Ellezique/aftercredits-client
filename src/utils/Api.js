@@ -15,7 +15,6 @@ const api = axios.create({})
 
 // API KEYS
 const MOVIE_API_KEY = process.env.REACT_APP_MOVIE_API_KEY
-// const BING_API_KEY = process.env.REACT_APP_BING_API_KEY
 
 // API CONFIGURATIONS
 const serverConfig = {
@@ -28,19 +27,13 @@ const movieConfig = {
     'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
   }
 }
-// const bingConfig = {
-//   baseURL: '',
-//   headers: {
-//     'Authorisation': BING_API_KEY,
-//   }
-// }
 
 const Api = {
 // API ROUTES OBJECT
   // BACKEND ROUTES
   serverApi: {
     // USER TABLE
-    user: {
+    users: {
       create(payload) {
         return api.post('/users/id', payload, serverConfig)
       },
@@ -50,10 +43,13 @@ const Api = {
       delete(payload) {
         return api.post('/users/id', payload, serverConfig)
       },
-
+      // AUTHORISATION ROUTES
       auth: {
-        login(payload) {
-          return api.post('/auth/login/', payload, serverConfig)
+        signup(payload) {
+          return api.post('/auth/sign_up', payload, serverConfig)
+        },
+        signin(payload) {
+          return api.post('/auth/sign_in', payload, serverConfig)
         },
         logout() {
           return api.post('/auth/logout/', {/* something */}, serverConfig)
@@ -64,24 +60,33 @@ const Api = {
       },
     },
     // MESSAGE TABLE
-    message: {
+    messages: {
       getAll() {
-        return api.get('/messages/all', serverConfig)
+        return api.get('/messages', serverConfig)
+      },
+      getOne() {
+        return api.get('/messages/:id', serverConfig)
+      },
+      getUserAll() {
+        return api.get('/messages/user', serverConfig)
       },
       create(payload) {
-        return api.post('/messages/id', payload, serverConfig)
+        return api.post('/messages/:id', payload, serverConfig)
       },
       edit(payload) {
-        return api.put('/messages/id', payload, serverConfig)
+        return api.put('/messages/:id', payload, serverConfig)
       },
       delete(payload) {
-        return api.delete('/messages/id', payload, serverConfig)
+        return api.delete('/messages/:id', payload, serverConfig)
       },
     },
     // CARD TABLE
-    card: {
+    cards: {
       getAll() {
-        return api.get('/cards/all')
+        return api.get('/cards')
+      },
+      getOne() {
+        return api.get('/cards/:id')
       },
       create(payload) {
         return api.post('/cards/id', payload, serverConfig)
@@ -105,10 +110,6 @@ const Api = {
         return api.post('', payload, movieConfig)
       },
     }
-  },
-  // BING ROUTES
-  bingApi: {
-
   }
 }
 export default Api
