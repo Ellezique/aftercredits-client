@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar.js'
 import NotFound from './components/NotFound'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 // import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 //RAILS API: getMessages, getCards
 // import { getMessages } from './services/messagesService.js'
@@ -41,6 +41,7 @@ return (
       <Navbar loggedInUser={loggedInUser} activateUser={activateUser}/>
         <Switch>
             <Route exact path='/' component={Home} />
+            <Redirect exact from="/reload" to="/" />
             {/*??? <Route exact path="/cards/:id">
               <Redirect to="/cards/:id/messages"/>
             </Route> */}
