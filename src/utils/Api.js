@@ -15,7 +15,7 @@ const api = axios.create({})
 
 // API KEYS
 const MOVIE_API_KEY = process.env.REACT_APP_MOVIE_API_KEY
-const BING_API_KEY = process.env.REACT_APP_BING_API_KEY
+// const BING_API_KEY = process.env.REACT_APP_BING_API_KEY
 
 // API CONFIGURATIONS
 const serverConfig = {
@@ -28,12 +28,12 @@ const movieConfig = {
     'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
   }
 }
-const bingConfig = {
-  baseURL: '',
-  headers: {
-    'Authorisation': BING_API_KEY,
-  }
-}
+// const bingConfig = {
+//   baseURL: '',
+//   headers: {
+//     'Authorisation': BING_API_KEY,
+//   }
+// }
 
 const Api = {
 // API ROUTES OBJECT
