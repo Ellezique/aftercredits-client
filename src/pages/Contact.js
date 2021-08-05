@@ -16,11 +16,11 @@ function Contact() {
       <div className="credits">
         <h1>Project Built By:</h1>
         <h4>Gizelle</h4>
-        <a className="hyperlink" href="https://github.com/Ellezique" target="_blank">
+        <a className="hyperlink" href="https://github.com/Ellezique" target="_blank" rel="noreferrer">
           https://github.com/Ellezique
         </a>
         <h4>Chris</h4>
-        <a className="hyperlink" href="https://github.com/chris-gibs" target="_blank">
+        <a className="hyperlink" href="https://github.com/chris-gibs" target="_blank" rel="noreferrer">
           https://github.com/chris-gibs
         </a>
       </div>
