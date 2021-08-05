@@ -1,20 +1,40 @@
-.MessageContainer {
+.container {
+  position: relative;
   border: 1px solid red;
   border-radius: 4px;
-  background-color: darkgrey;
+  background-color: #202020;
   color: white;
-  width: 300px;
-  height: 200px;
+  margin: 1em;
+  min-height: 5em;
 }
 
-.MessageUser {
-
+.user {
+  position: absolute;
+  top: -0.7em;
+  left: .25em;
 }
 
-.MessageText {
-
+.text {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 1em;
+  left: 2em;
 }
 
-.MessageDate {
+.date {
+  position: absolute;
+  top: .8em;
+  left: .25em;
+}
 
+.options {
+  position: absolute;
+  bottom: .25em;
+  left: .25em;
+}
+
+.editButtons {
+  position: absolute;
+  bottom: .25em;
 }

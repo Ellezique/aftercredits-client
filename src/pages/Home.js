@@ -3,6 +3,7 @@ import Card from '../components/Card'
 import Button from '../components/Button'
 import { Link } from 'react-router-dom'
 // import Api from '../utils/Api'
+import './Home.css'
 
 export default function Home() {
   const [isSelected, setIsSelected] = useState(false)
@@ -46,7 +47,7 @@ export default function Home() {
 
   return (
     <div>
-      <h1>HOME PAGE</h1>
+      
 
       {/* FETCH 2 IDs FROM BACKEND AND PASS TO MOVIE FETCH */}
       {/* PUT MOVIE FETCH RESPONSE INTO CARDS AND DISPLAY ALL */}
@@ -57,12 +58,15 @@ export default function Home() {
       {!isSelected ?
         // ALL CARDS
         <>
-          {cards.map((card, index) => {
-            const { title, imgSrc } = card.data
-            return (
-                <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)} />
-            )
-          })}
+          <h1>HOME PAGE</h1>
+          <div className='cardsContainer'>
+            {cards.map((card, index) => {
+              const { title, imgSrc } = card.data
+              return (
+                  <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)} />
+              )
+            })}
+          </div>
           <Link to='/CreateCard'>
             <Button
               text='Create Card'

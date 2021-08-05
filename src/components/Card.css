@@ -1,0 +1,15 @@
+.cardContainer {
+  text-align: center;
+  border: 1px solid black;
+  background-color: red;
+  color: white;
+  margin: 1em;
+  /* position: relative; */
+  /* width: 100%; */
+  /* height: auto; */
+}
+/* .cardImage {
+  max-width: 100%;
+  max-width: 400px;
+  height: auto;
+} */

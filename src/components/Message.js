@@ -17,20 +17,22 @@ export default function Message({message}) {
   }
 
   return (
-    <div className='MessageContainer'>
+    <div className='container'>
       {!editing ?
         <>
-          <p className='MessageUser'>{username}</p>
-          <p className='MessageText'>{messageText}</p>
-          <p className='MessageDate'>{date}</p>
-          <Button 
-            text='Options'
-            callback={() => {
-              setOptions(!options)
-            }}
-          />
+          <p className='user'>{username}</p>
+          <p className='text'>{messageText}</p>
+          <p className='date'>{date}</p>
+          <div className='options'>
+            <Button 
+              text='Options'
+              callback={() => {
+                setOptions(!options)
+              }}
+            />
+          </div>
           {options &&
-            <div className='OptionsContainer'>
+            <div className='options'>
               <Button 
                 text='Edit'
                 callback={() => {
@@ -79,16 +81,27 @@ export default function Message({message}) {
       :
         <>
           <textarea value={messageText} onChange={handleChange} />
-          <Button 
-            text='Save Changes'
-            callback={() => {
-              // PUT REQUEST TO MESSAGE TABLE FOR MESSAGE/:id
+          <div className='editButtons'>
+            <Button 
+              text='Save'
+              callback={() => {
+                // PUT REQUEST TO MESSAGE TABLE FOR MESSAGE/:id
 
-              setEditing(false)
-              console.log('save')
-            }}
-            // icon='' grab later
-          />
+                setEditing(false)
+                console.log('save')
+              }}
+              // icon='' grab later
+            />
+            <Button 
+              text='Cancel'
+              callback={() => {
+                // CANCEL
+                setEditing(false)
+                console.log('cancel')
+              }}
+              // icon='' grab later
+            />
+          </div>
         </>
       }
     </div>
