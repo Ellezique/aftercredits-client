@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 //import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
-import { useHistory } from 'react-router'
 
 const Navbar = ({loggedInUser, activateUser}) => {
   function logout(e){
@@ -10,8 +9,6 @@ const Navbar = ({loggedInUser, activateUser}) => {
     console.log("logout")
     activateUser("")
   }
-
-  const history = useHistory()
   
     //BURGER MENU
     //set state
@@ -30,7 +27,7 @@ const Navbar = ({loggedInUser, activateUser}) => {
              <i className={click ? "fas fa-times" : "fas fa-bars"} />
            </div>
             {/* Navbar Logo and AfterCredits title, linking back to home page. Burger menu hidden. */}
-            <Link to='/' className="logo-section" onClick={() => history.go(0)}>
+            <Link to='/' className="logo-section">
               <img className="popcorn" src="./images/popcorn.png" alt="popcorn" />
               AfterCredits
             {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
@@ -49,10 +46,7 @@ const Navbar = ({loggedInUser, activateUser}) => {
                                   <Link to='/LogIn' className='nav-links' onClick={closeBurgerMenu}>Log In</Link>
                               </>
                             }
-                            <Link to='/' className='nav-links' onClick={() => {
-                              closeBurgerMenu()
-                              history.go(0)
-                            }}>Home</Link>
+                            <Link to='/' className='nav-links' onClick={closeBurgerMenu}>Home</Link>
                             <Link to='/Contact' className='nav-links' onClick={closeBurgerMenu}>Contact</Link>
                   </div>
           </div>
