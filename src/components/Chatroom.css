@@ -1,7 +1,10 @@
-.ChatroomContainer {
+.chatroomContainer {
   border: 2px solid red;
   border-radius: 8px;
   background-color: black;
   width: 400px;
   height: 800px;
+}
+.postContainer {
+
 }

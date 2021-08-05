@@ -42,7 +42,7 @@ export default function Message({message}) {
               <Button 
                 text='Delete'
                 callback={() => {
-                  setPopupOpen(!popupOpen)
+                  setPopupOpen(true)
                   console.log('delete')
                 }}
               />           
@@ -56,15 +56,17 @@ export default function Message({message}) {
                 <Button 
                   text='Yes'
                   callback={() => {
-                    setOptions(!options)
-                    setPopupOpen(!popupOpen)
+                    // DELETE REQUEST TO MESSAGE TABLE FOR MESSAGE/:id
+                    
+                    setOptions(false)
+                    setPopupOpen(false)
                     console.log('Yes')
                   }}
                 />  
                 <Button 
                   text='No'
                   callback={() => {
-                    setPopupOpen(!popupOpen)
+                    setPopupOpen(false)
                     console.log('No')
                   }}
                 />  
@@ -80,7 +82,7 @@ export default function Message({message}) {
           <Button 
             text='Save Changes'
             callback={() => {
-              // PUT REQUEST TO MESSAGE TABLE
+              // PUT REQUEST TO MESSAGE TABLE FOR MESSAGE/:id
 
               setEditing(false)
               console.log('save')

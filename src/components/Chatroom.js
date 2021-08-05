@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Message from './Message'
+import Button from './Button'
+import Api from './../utils/Api'
 import './Chatroom.css'
 
 export default function Chatroom({spoilerRoom}) {
@@ -15,19 +17,38 @@ export default function Chatroom({spoilerRoom}) {
     {username: 'ICantHelpMyself', text: 'Tony Stark dies in the end, GG', date: '12/07/2021', spoiler: true},
   ]
 
-  //Will change this into a get request that filters which messages to return/render
-  const messages = spoilerRoom ?
-    messagesList.filter(message => message.spoiler === true) :
-    messagesList.filter(message => message.spoiler === false)
+  const messages = spoilerRoom
+  ? messagesList.filter(message => message.spoiler === true)
+  : messagesList.filter(message => message.spoiler === false)
+
+  const [text, setText] = useState('')
 
   return (
-    <div className='ChatroomContainer'>
-      {/* Renders Messages after they have been filtered above */}
+    <div className='chatroomContainer'>
+      {/* RENDER MESSAGES*/}
       {messages.map((message, index) => {
         return (
           <Message key={index} message={message}/>
         )
       })}
+      {/* CREATE MESSAGES */}
+      <div className='postContainer'>
+        <textarea
+          value={text}
+          onChange={(event) => {
+            setText(event.target.value)
+          }}
+        />
+        <Button
+          text='Post'
+          callback={() => {
+            // UPDATE MESSAGES ON BACKEND
+            Api.serverApi.message.create(text)
+          
+            console.log('post')
+          }}
+        />
+      </div>
     </div>
   )
 }
