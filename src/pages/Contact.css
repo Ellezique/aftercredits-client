@@ -6,28 +6,27 @@ h1 {
   font-family: 'Limelight', cursive;
   font-size: 2rem;
 }
-
+/* 
 .credits {
-  width: auto; /* width of text entry areas inside the form */
+  width: auto; 
   margin-top: 50px;
   margin-bottom: 100px;
   padding-top: 10px;
   padding-left: 10px;
   padding-bottom:30px;
   border: 1px solid hsla(0, 0%, 0%, 0.685);
-  border-radius: 0.2rem;  /* Rounded borders */
+  border-radius: 0.2rem; 
   
   font-size: 18px;
   color: hsl(0, 0%, 0%);
   background-color: hsl(0, 0%, 100%);
   font-family: 'Limelight', cursive;
 }
- 
+  */
 
-.credits h4 {
+ h4 {
   margin-bottom: 5px;
   font-size: 15px;
-  
 }
 
 .hyperlink {

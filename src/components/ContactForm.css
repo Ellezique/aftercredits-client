@@ -14,7 +14,14 @@
   margin-right: 0.5%  */
 }
 
-.formbox h1 {
+form {
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 100%);
+  font-family: 'Limelight', cursive;
+  font-size: 18px;
+}
+
+ h1 {
   margin-top: 50px;
   font-family: 'Limelight', cursive;
 }
@@ -48,10 +55,4 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: hsla(0, 100%, 50%);
 }
-/* Add a background color to the form */
-form {
-  border-radius: 5px;
-  background-color: hsl(0, 0%, 100%);
-  font-family: 'Limelight', cursive;
-  font-size: 18px;
-}
+
