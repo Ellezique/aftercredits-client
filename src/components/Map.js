@@ -6,11 +6,12 @@ function Map() {
   return (
     <div>
       <h1>Physical Address</h1>
-      <p>Our physical address is accessible by appointment only, but feel free to contact us by post: </p>
+      <p>This is a student project completed for Coder Academy. If AfterCredits did exist, we would have a physical address: </p>
       <div className="mapcontainer">
         {/* ADDRESS BOX */}
         <div className="addressbox">
           <h3>AfterCredits</h3>
+          <p>(Actually Coder Academy)</p>
           <p>Level 3/116 Adelaide St,</p>
           <p>Brisbane City</p>
           <p >QLD 4000</p>
