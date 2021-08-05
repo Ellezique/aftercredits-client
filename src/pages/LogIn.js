@@ -50,11 +50,6 @@ const LogIn =({history, activateUser})=> {
   )
 }
 
-export default LogIn
-
-
-
-
 // import React from 'react'
 
 // //Data = Array of users 
@@ -146,3 +141,4 @@ export default LogIn
 // export default LogIn;
 
 
+export default LogIn

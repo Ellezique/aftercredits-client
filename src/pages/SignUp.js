@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 const SignUp =({history, activateUser})=> {
   console.log(history)
   const initialFormData = {
-    username: "". 
+    username: "", 
     email: "",
     password: "",
     password_confirmation: ""
@@ -35,8 +35,11 @@ const SignUp =({history, activateUser})=> {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        
           <label htmlFor="email">Email:</label>
           <input type="email" name="email" id="email" onChange={handleFormData}/>
+          <label htmlFor="text">Username:</label>
+          <input type="text" name="username" id="username" onChange={handleFormData}/>
           <label htmlFor="password">Password:</label>
           <input type="password" name="password" id="password" onChange={handleFormData} />
           {/* <input type="text" name="username" id="username" onChange={handleFormData}/> */}
@@ -46,48 +49,10 @@ const SignUp =({history, activateUser})=> {
           <br></br>
           <input type="submit" value="Sign up" />
       </form>
-      <Link to='/SignUp'>Sign Up</Link>
+      <Link to='/LogIn'>Log In</Link>
     </div>
   )
 }
 
-export default LogIn
+export default SignUp
 
-
-// import React from 'react'
-
-// const users = [
-//   {
-//     username: "Angelina",
-//     email: "hackers@nineties.com",
-//     password: "101101110"
-//   },
-//   {
-//     username: "Sandra",
-//     email: "erased@thenet.com",
-//     password: "fakepassword"
-//   }
-// ]
-
-// class LogIn extends React.Component {
-//   render() {
-//     console.log(users)
-//     return (
-//       <div className="logincontainer">
-//         <h2>Log In</h2>
-//         <form className="login-form">
-//           <label htmlFor="username"> Username </label>
-//           <input type="text" name="username" id="username" />
-//           <label htmlFor="email"> Email </label>
-//           <input type="text" name="email" id="email" />
-//           <label htmlFor="password"> Password </label>
-//           <input type="password" name="password" id="password" />
-//           <br></br>
-//           <input type="submit" value="Submit" id="submit"/>
-//         </form>
-//       </div>
-//     )
-//   }
-// }
-
-// export default LogIn;
