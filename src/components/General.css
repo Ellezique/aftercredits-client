@@ -38,9 +38,24 @@ h4 {
 }
 
 .hyperlink:hover {
+  color:red;
+  font-weight: bold;
+ } 
+
+.hyperlink2 {
+  background-color: hsla(51, 91%, 71%, 0.301);
+  font-size: 15px;
+  font-family: 'STIX Two Text', serif;
+  margin-bottom: 50px;
+  color: rgb(255, 255, 255);
+  letter-spacing: 3px;
+  text-decoration: none;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.hyperlink2:hover {
  color:red;
  font-weight: bold;
- 
 }
 
 video {
