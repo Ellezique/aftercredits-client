@@ -15,6 +15,7 @@ const SignUp = ({ history, activateUser }) => {
     password: "",
     password_confirmation: ""
   }
+ 
 
   const [formData, setFormData] = useState(initialFormData)
 
@@ -36,6 +37,7 @@ const SignUp = ({ history, activateUser }) => {
 
   return (
     <div>
+      <video src='./video/background.mp4'autoPlay loop muted/>
       <div className="form">
         <div className="formbox">
           <h1>Sign Up</h1>

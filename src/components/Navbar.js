@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-//import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
+import './General.css'
 
 const Navbar = ({loggedInUser, activateUser}) => {
   function logout(e){
@@ -22,15 +22,16 @@ const Navbar = ({loggedInUser, activateUser}) => {
     <>
      <nav className="navbar">
           <div className="navbar-container">
-          {/*If clicked, show burger menu x icon. If not clicked, show burger menu bars icon */}
            <div className='menu-icon' onClick={handleClick}>
              <i className={click ? "fas fa-times" : "fas fa-bars"} />
            </div>
-            {/* Navbar Logo and AfterCredits title, linking back to home page. Burger menu hidden. */}
             <Link to='/reload' className="logo-section">
               <img className="popcorn" src="./images/popcorn.png" alt="popcorn" />
-              AfterCredits
+              {/* AfterCredits */}
             {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
+            </Link>
+            <Link to='/reload' className="nav-logo">
+              AfterCredits
             </Link>
                   <div className={click ? 'nav-menu active' : 'nav-menu'}>
                             {loggedInUser ? 
@@ -46,8 +47,9 @@ const Navbar = ({loggedInUser, activateUser}) => {
                                   <Link to='/LogIn' className='nav-links' onClick={closeBurgerMenu}>Log In</Link>
                               </>
                             }
-                            <Link to='/reload' className='nav-links' onClick={closeBurgerMenu}>Home</Link>
-                            <Link to='/Contact' className='nav-links' onClick={closeBurgerMenu}>Contact</Link>
+                          
+                            <Link to='/reload' className='nav-links' id="item-home" onClick={closeBurgerMenu}>Home</Link>
+                            <Link to='/Contact' className='nav-links' id="item-contact" onClick={closeBurgerMenu}>Contact</Link>   
                   </div>
           </div>
       </nav>

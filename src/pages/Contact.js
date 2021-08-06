@@ -8,10 +8,11 @@ import '../components/ContactForm.css'
 function Contact() {
 
   return (
-    <>
+    <div>
+      <video src='./video/background.mp4'autoPlay loop muted/>
       <ContactForm></ContactForm>
       <br></br>
-      
+  
       <Map></Map>
       <div className="credits">
         <h1>Project Built By:</h1>
@@ -19,14 +20,18 @@ function Contact() {
         <a className="hyperlink" href="https://github.com/Ellezique" target="_blank" rel="noreferrer">
           https://github.com/Ellezique
         </a>
+        <br></br>
         <h4>Chris</h4>
         <a className="hyperlink" href="https://github.com/chris-gibs" target="_blank" rel="noreferrer">
           https://github.com/chris-gibs
         </a>
+        <h1>Background Credit:</h1>
+        <a className="hyperlink" href="https://www.youtube.com/watch?v=NlZMXbJ84YQ" target="_blank" rel="noreferrer">
+          Mikhail Gorbunov, Motion Designer
+        </a>
       </div>
-    </>
+    </div>
   );
 }
 
 export default Contact
-

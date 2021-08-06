@@ -5,12 +5,14 @@ function Map() {
   let center = { latitude: -27.468150020880756, longitude: 153.02513165952453 }
   return (
     <div>
-      <h1>Physical Address</h1>
-      <p>This is a student project completed for Coder Academy. If AfterCredits did exist, we would have a physical address: </p>
+      <div className="physical-address">
+        <h1>Physical Address</h1>
+        <p>This is a student project completed for Coder Academy. If AfterCredits did exist, we would have a physical address: </p>
+      </div>
       <div className="mapcontainer">
         {/* ADDRESS BOX */}
         <div className="addressbox">
-          <h3>AfterCredits</h3>
+          <h4>AfterCredits</h4>
           <p>(Actually Coder Academy)</p>
           <p>Level 3/116 Adelaide St,</p>
           <p>Brisbane City</p>
