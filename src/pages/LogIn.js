@@ -34,6 +34,7 @@ const LogIn = ({ history, activateUser }) => {
 
   return (
     <div>
+      <video src='./video/background.mp4'autoPlay loop muted/>
       <div className="form">
         <div className="formbox">
           <h1>Log In</h1>
