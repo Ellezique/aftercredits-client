@@ -59,7 +59,7 @@ const SignUp = ({ history, activateUser }) => {
           </form>
           <br></br>
           <p>If you already have an account, please log in:</p>
-          <Link to='/LogIn' className="hyperlink">Log In</Link>
+          <Link to='/LogIn' className="hyperlink2">Log In</Link>
         </div>
       </div>
     </div>

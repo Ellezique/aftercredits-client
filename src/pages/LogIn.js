@@ -53,7 +53,7 @@ const LogIn = ({ history, activateUser }) => {
           </form>
           <br></br>
           <p>If you are a new user, you will need to create an account before you can join the chatrooms:</p>
-          <Link to='/SignUp' className="hyperlink">Sign Up</Link>
+          <Link to='/SignUp' className="hyperlink2">Sign Up</Link>
         </div>
       </div>
     </div>
