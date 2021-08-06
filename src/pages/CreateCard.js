@@ -23,7 +23,7 @@ export default function CreateCard() {
         text='Create New Card'
         callback={() => {
           // ADD CARD TO BACKEND
-          Api.serverApi.message.create(cardId)
+          Api.serverApi.cards.create({imdb_id: cardId})
           console.log('new card, what do you think?')
         }}
       />

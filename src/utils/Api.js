@@ -18,14 +18,14 @@ const MOVIE_API_KEY = process.env.REACT_APP_MOVIE_API_KEY
 
 // API CONFIGURATIONS
 const serverConfig = {
-  baseURL: ''
+  baseURL: 'https://aftercredits-api.herokuapp.com/api'
 }
 const movieConfig = {
   baseURL: 'https://movie-database-imdb-alternative.p.rapidapi.com',
   headers: {
     'x-rapidapi-key': MOVIE_API_KEY,
     'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
-  }
+  },
 }
 
 const Api = {
@@ -35,7 +35,7 @@ const Api = {
     // USER TABLE
     users: {
       create(payload) {
-        return api.post('/users/id', payload, serverConfig)
+        return api.post('/users', payload, serverConfig)
       },
       edit(payload) {
         return api.post('/users/id', payload, serverConfig)
@@ -71,7 +71,7 @@ const Api = {
         return api.get('/messages/user', serverConfig)
       },
       create(payload) {
-        return api.post('/messages/:id', payload, serverConfig)
+        return api.post('/messages', payload, serverConfig)
       },
       edit(payload) {
         return api.put('/messages/:id', payload, serverConfig)
@@ -83,31 +83,27 @@ const Api = {
     // CARD TABLE
     cards: {
       getAll() {
-        return api.get('/cards')
+        return api.get('/cards', serverConfig)
       },
       getOne() {
-        return api.get('/cards/:id')
+        return api.get('/cards/:id', serverConfig)
       },
       create(payload) {
-        return api.post('/cards/id', payload, serverConfig)
+        return api.post('/cards', payload, serverConfig)
       },
       edit(payload) {
-        return api.put('/cards/id', payload, serverConfig)
+        return api.put('/cards/:id', payload, serverConfig)
       },
       delete(payload) {
-        return api.delete('/cards/id', payload, serverConfig)
+        return api.delete('/cards/:id', payload, serverConfig)
       },
     }
   },
   // MOVIE ROUTES
   movieApi: {
     movies: {
-      //Cleaner style?
-      getAll(payload) {
-        return api.get('', payload, movieConfig)
-      },
-      getSelected(payload) {
-        return api.post('', payload, movieConfig)
+      getDetails(payload) {
+        // return api.get('/', movieConfig)
       },
     }
   }

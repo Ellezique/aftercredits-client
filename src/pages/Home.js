@@ -2,39 +2,55 @@ import React, { useState } from 'react'
 import Card from '../components/Card'
 import Button from '../components/Button'
 import { Link } from 'react-router-dom'
-// import Api from '../utils/Api'
+import Api from '../utils/Api'
 import './Home.css'
+import axios from 'axios'
 
 export default function Home() {
+  // const [cardIds, setCardIds] = useState([])
+  const [cardDetails, setCardDetails] = useState([])
   const [isSelected, setIsSelected] = useState(false)
   const [selectedCard, setSelectedCard] = useState(null)
 
-  const cards = [
-    {
-      id: 'tt4154796',
-      data: {
-        title: 'Avengers Endgame',
-        imgSrc: 'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
-        releaseDate: '01/03/2021'
-      }
-    },
-    {
-      id: 'tt4154796',
-      data: {
-        title: 'Super Dooper',
-        imgSrc: 'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
-        releaseDate: '20/12/2010'
-      }
-    },
-    {
-      id: 'tt4154796',
-      data: {
-        title: 'Lord of the Rings',
-        imgSrc: 'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
-        releaseDate: '10/06/2000'
-      }
-    }
-  ]
+const cardList = []
+
+  async function getCardDetails() {
+    // GET IDS FROM SERVER
+    const cardIds = await Api.serverApi.cards.getAll()
+    // GET MOVIE DETAILS FROM MOVIE API 
+    cardIds.data.map(async (id)=>{
+      const cardDetails = await Api.movieApi.movies.getDetails({i: id.imdb_id})
+      cardList.push(cardDetails)
+    })  
+  }
+  getCardDetails()
+  
+  // const cards = [
+  //   {
+  //     id: 'tt4154796',
+  //     data: {
+  //       title: 'Avengers Endgame',
+  //       imgSrc: 'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
+  //       releaseDate: '01/03/2021'
+  //     }
+  //   },
+  //   {
+  //     id: 'tt4154796',
+  //     data: {
+  //       title: 'Super Dooper',
+  //       imgSrc: 'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
+  //       releaseDate: '20/12/2010'
+  //     }
+  //   },
+  //   {
+  //     id: 'tt4154796',
+  //     data: {
+  //       title: 'Lord of the Rings',
+  //       imgSrc: 'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
+  //       releaseDate: '10/06/2000'
+  //     }
+  //   }
+  // ]
 
   function handleClick(card) {
     console.log(card)
@@ -60,12 +76,12 @@ export default function Home() {
         <>
           <h1>HOME PAGE</h1>
           <div className='cardsContainer'>
-            {cards.map((card, index) => {
+            {/* {cards.map((card, index) => {
               const { title, imgSrc } = card.data
               return (
                   <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)} />
               )
-            })}
+            })} */}
           </div>
           <Link to='/CreateCard'>
             <Button

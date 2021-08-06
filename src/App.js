@@ -1,12 +1,10 @@
-//import React, { useState } from 'react'
 import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar.js'
 import NotFound from './components/NotFound'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
-// import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 //RAILS API: getMessages, getCards
 // import { getMessages } from './services/messagesService.js'
-//import './App.css'
+import './App.css'
 import Home from './pages/Home'
 import LogIn from './pages/LogIn'
 import SignUp from './pages/SignUp'
