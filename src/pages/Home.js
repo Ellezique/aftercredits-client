@@ -4,11 +4,9 @@ import Button from '../components/Button'
 import { Link } from 'react-router-dom'
 import Api from '../utils/Api'
 import './Home.css'
-import axios from 'axios'
 
 export default function Home() {
-  // const [cardIds, setCardIds] = useState([])
-  const [cardDetails, setCardDetails] = useState([])
+  // const [cardList, setCardList] = useState([])
   const [isSelected, setIsSelected] = useState(false)
   const [selectedCard, setSelectedCard] = useState(null)
 
@@ -76,12 +74,12 @@ const cardList = []
         <>
           <h1>HOME PAGE</h1>
           <div className='cardsContainer'>
-            {/* {cards.map((card, index) => {
+            {cardList.map((card, index) => {
               const { title, imgSrc } = card.data
               return (
                   <Card key={index} title={title} imgSrc={imgSrc} onClick={() => handleClick(card)} />
               )
-            })} */}
+            })}
           </div>
           <Link to='/CreateCard'>
             <Button
