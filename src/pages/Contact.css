@@ -2,11 +2,11 @@ p {
   font-family: 'STIX Two Text', serif;
 }
 
-h1 {
+.credits h1 {
   font-family: 'Limelight', cursive;
   font-size: 2rem;
 }
-/* 
+
 .credits {
   width: auto; 
   margin-top: 50px;
@@ -22,9 +22,9 @@ h1 {
   background-color: hsl(0, 0%, 100%);
   font-family: 'Limelight', cursive;
 }
-  */
+ 
 
- h4 {
+ .credits h4 {
   margin-bottom: 5px;
   font-size: 15px;
 }

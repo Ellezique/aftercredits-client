@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+
 //Styling is handled by ContactForm.css
 
 // USERS FROM RAILS SEEDS FILE:
