@@ -9,7 +9,7 @@ function Contact() {
 
   return (
     <div>
-      <video src='./video/background.mp4'autoPlay loop muted/>
+      <video src='https://res.cloudinary.com/ellezique/video/upload/v1628310794/background_sgqbly.mp4'autoPlay loop muted/>
       <ContactForm></ContactForm>
       <br></br>
   
