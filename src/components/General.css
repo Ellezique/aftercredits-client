@@ -3,6 +3,13 @@ html, body {
   padding:0;
 }
 
+/* The standard layout style that can be used for any page eg NotFound */
+.gencontainer {
+  padding-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 p {
   font-family: 'STIX Two Text', serif;
   color: hsl(0, 0%, 100%);
@@ -34,7 +41,7 @@ h4 {
   margin-bottom: 50px;
   color: rgb(255, 255, 255);
   letter-spacing: 3px;
-  text-decoration: none; /*Removes link's default underline*/
+  /*text-decoration: none; Removes link's default underline*/
 }
 
 .hyperlink:hover {

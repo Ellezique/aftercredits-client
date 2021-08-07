@@ -26,7 +26,7 @@ const Navbar = ({loggedInUser, activateUser}) => {
              <i className={click ? "fas fa-times" : "fas fa-bars"} />
            </div>
             <Link to='/reload' className="logo-section">
-              <img className="popcorn" src="./images/popcorn.png" alt="popcorn" />
+              <img className="popcorn" src="./images/popcorn.png" alt=""/>
               {/* AfterCredits */}
             {/* <i className="fas fa-film" id="navtitle"> AfterCredits</i> */}
             </Link>
