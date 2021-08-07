@@ -25,9 +25,13 @@ function Contact() {
         <a className="hyperlink" href="https://github.com/chris-gibs" target="_blank" rel="noreferrer">
           https://github.com/chris-gibs
         </a>
-        <h1>Background Credit:</h1>
+        <h1>Background Credits:</h1>
         <a className="hyperlink" href="https://www.youtube.com/watch?v=NlZMXbJ84YQ" target="_blank" rel="noreferrer">
-          Mikhail Gorbunov, Motion Designer
+          Mikhail Gorbunov, Motion Designer 
+        </a>
+        <br></br>
+        <a className="hyperlink" href="https://www.youtube.com/watch?v=ArGm859qkL8" target="_blank" rel="noreferrer">
+          Cia Motions 
         </a>
       </div>
     </div>
