@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from './../components/Button'
 import Api from './../utils/Api'
+import { Link } from 'react-router-dom'
 
 export default function CreateCard() {
   const [cardId, setCardId] = useState('')
@@ -19,6 +20,7 @@ export default function CreateCard() {
             setCardId(event.target.value)
           }}
         />
+      <Link to='/' >
       <Button
         text='Create New Card'
         callback={() => {
@@ -27,6 +29,7 @@ export default function CreateCard() {
           console.log('new card, what do you think?')
         }}
       />
+      </Link>
     </div>
   )
 }

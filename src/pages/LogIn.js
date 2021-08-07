@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import { useGlobalState } from './../utils/stateContext'
 import { Link } from 'react-router-dom'
+import Api from './../utils/Api'
 //Styling is handled by ContactForm.css
 
 // USERS FROM RAILS SEEDS FILE:
@@ -7,13 +9,11 @@ import { Link } from 'react-router-dom'
 // (username: "testuser", email: "test@email.com", password: "123456", password_confirmation: "123456")
 
 const LogIn = ({ history, activateUser }) => {
-  console.log(history)
+  const { dispatch } = useGlobalState()
   const initialFormData = {
     email: "",
-    password: "" /*,
-    username: "" */
+    password: ""
   }
-
   const [formData, setFormData] = useState(initialFormData)
 
   function handleFormData(e) {
@@ -28,8 +28,15 @@ const LogIn = ({ history, activateUser }) => {
     e.preventDefault()
     // console.log("You clicked login: ", formData.email)
     // console.log(formData.password)
+    signIn(formData)
+    dispatch({type: 'isLoggedIn', data: true})
     activateUser(formData.email)
     return history.push("/") //redirects user to home page after log in submit
+  }
+
+  async function signIn(formData) {
+    console.log(formData)
+    await Api.serverApi.users.auth.signin(formData)
   }
 
   return (

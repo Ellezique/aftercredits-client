@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useReducer } from 'react'
+import { StateContext } from './utils/stateContext'
+import reducer from './utils/stateReducer'
+
 import Navbar from './components/Navbar.js'
 import NotFound from './components/NotFound'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
@@ -12,34 +15,20 @@ import Contact from './pages/Contact'
 import CreateCard from './pages/CreateCard'
 
 const App = () => {
+  const initialState = {
+    isLoggedIn: false,
+  }
+  const [store, dispatch] = useReducer(reducer, initialState)
+
   const [loggedInUser, setLoggedInUser] = useState("")
 
   function activateUser(name){
     setLoggedInUser(name)
   }
 
-  // to get data from rails api. See src/services folder. 
-  useEffect(()=>{
-    // getMessages()
-    // .then((messages) =>{
-    //   dispatchEvent({
-    //     type: "setMessageList",
-    //     data: messages
-    //   })
-    // })
-    // .catch(error => console.log(error))
-  },[])
-
-//the chatroom messages for each card & creating a new message, each need to render with props in routing below. See T3W9- Thursday Morning- Brisbane lecture*/
-//probably need to add a route for the card component as well.
-//Below has a commented out find() function, that should ideally be extracted into its own function T3W9- Thursday Morning- Brisbane @ 2:10:00
-
-  // function getMessage(id){
-  //   return messageList.find(m=> m.id === parseInt(id))
-  // }
-
 return (
     <div className="App">
+      <StateContext.Provider value={{store, dispatch}}>
       <BrowserRouter>
       <Navbar loggedInUser={loggedInUser} activateUser={activateUser}/>
         <Switch>
@@ -67,18 +56,7 @@ return (
             <Route component={NotFound} />
         </Switch>
       </BrowserRouter>
-
-
-      {/* <Router >
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route path='/LogIn' component={LogIn} />
-          <Route path='/SignUp' component={SignUp} />
-          <Route path='/Contact' component={Contact} />
-        </Switch>
-      </Router> */}
-
+      </StateContext.Provider>
     </div>
   )
 }
