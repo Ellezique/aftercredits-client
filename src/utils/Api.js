@@ -14,19 +14,19 @@ const api = axios.create({})
 // })
 
 // API KEYS
-// const MOVIE_API_KEY = process.env.REACT_APP_MOVIE_API_KEY
+const MOVIE_API_KEY = process.env.REACT_APP_MOVIE_API_KEY
 
 // API CONFIGURATIONS
 const serverConfig = {
   baseURL: 'https://aftercredits-api.herokuapp.com/api'
 }
-// const movieConfig = {
-//   baseURL: 'https://movie-database-imdb-alternative.p.rapidapi.com',
-//   headers: {
-//     'x-rapidapi-key': MOVIE_API_KEY,
-//     'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
-//   },
-// }
+const movieConfig = {
+  baseURL: 'https://movie-database-imdb-alternative.p.rapidapi.com',
+  headers: {
+    'x-rapidapi-key': MOVIE_API_KEY,
+    'x-rapidapi-host': 'movie-database-imdb-alternative.p.rapidapi.com'
+  },
+}
 
 const Api = {
 // API ROUTES OBJECT
@@ -103,7 +103,8 @@ const Api = {
   movieApi: {
     movies: {
       getDetails(payload) {
-        // return api.get('/', movieConfig)
+        movieConfig.params = payload
+        return api.get('/', movieConfig)
       },
     }
   }
