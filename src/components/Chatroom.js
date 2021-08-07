@@ -8,6 +8,11 @@ export default function Chatroom({spoilerRoom}) {
   //Commented out until we get full api integration
   // const [messages, setMessages] = useState()
 
+  //make api call to server and use loading until data retrieved
+  // use imdb id as params for messages call
+  //call for messages linked to specific card id
+  //sort messages based on spoiler boolean
+
   // get messages from database once api/server are implemented
   const messagesList = [
     {username: 'BigMovieBuff', text: 'I think Marvel movies are the anime of the west, change my mind', date: '10/07/2021', spoiler: false},

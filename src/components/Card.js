@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useGlobalState } from './../utils/stateContext'
+import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Chatroom from './Chatroom'
 import './Card.css'
@@ -7,6 +9,30 @@ export default function Card({title, imgSrc, releaseDate, onClick, selected}) {
   const [chatroom, setChatroom] = useState(false)
   const [spoilerChatroom, setSpoilerChatroom] = useState(false)
   const selectedDetails = selected
+  const { store } = useGlobalState()
+  const { isLoggedIn } = store
+
+  function loggedInStatus(spoiler) {
+    if(!isLoggedIn){
+      <Link to='/LogIn' />
+    } else if(spoiler) {
+      setSpoilerChatroom(true)
+      setChatroom(false)
+    } else {
+      setChatroom(true)
+      setSpoilerChatroom(false)
+    }
+
+    // !isLoggedIn ?
+    //   <Link to='/LogIn'/>
+    // : spoiler ? (
+    //   setSpoilerChatroom(true),
+    //   setChatroom(false)
+    // ) : (
+    //   setChatroom(true),
+    //   setSpoilerChatroom(false)
+    // )
+  }
 
   return (
     <div className='cardContainer' onClick={onClick}>
@@ -18,15 +44,13 @@ export default function Card({title, imgSrc, releaseDate, onClick, selected}) {
         <Button
           text='Spoiler Chatroom'
           callback={() => {
-            setSpoilerChatroom(true)
-            setChatroom(false)
+            loggedInStatus(true)
           }}
         />
         <Button
           text='Chatroom'
           callback={() => {
-            setChatroom(true)
-            setSpoilerChatroom(false)
+            loggedInStatus(false)
           }}
         />
         {chatroom && !spoilerChatroom && <Chatroom />}
