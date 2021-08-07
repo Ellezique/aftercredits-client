@@ -2882,7 +2882,7 @@ bindings@^1.5.0:
 
 bingmaps-react@^1.1.0:
   version "1.1.0"
-  resolved "https://registry.npmjs.org/bingmaps-react/-/bingmaps-react-1.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/bingmaps-react/-/bingmaps-react-1.1.0.tgz#f406c89c885e9ce3ffa5eb5b70834c5448f7f8ec"
   integrity sha512-j3JkoQOZwUAJxli/94s2ZxvQox2YXg3EVM1yGnXJOsrQhWqUxIZo6j4J/O6UhCTsSKbjHy/NH2aCUYBp1bIzGg==
 
 bluebird@^3.5.5:

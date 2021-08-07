@@ -14,6 +14,7 @@ import SignUp from './pages/SignUp'
 import Contact from './pages/Contact'
 import CreateCard from './pages/CreateCard'
 
+
 const App = () => {
   const initialState = {
     isLoggedIn: false,

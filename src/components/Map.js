@@ -1,5 +1,5 @@
-import React from 'react'
-import BingMapsReact from "bingmaps-react";
+import React from 'react';
+import BingMapsReact from 'bingmaps-react';
 
 function Map() {
   let center = { latitude: -27.468150020880756, longitude: 153.02513165952453 }
