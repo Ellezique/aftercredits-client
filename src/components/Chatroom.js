@@ -38,7 +38,11 @@ export default function Chatroom({spoilerRoom}) {
       })}
       {/* CREATE MESSAGES */}
       <div className='postContainer'>
-        <textarea
+    
+        {/* <label>Enter your message here: </label> */}
+        <textarea 
+        id ="messagetextarea"
+          placeholder="Enter your message here:"
           value={text}
           onChange={(event) => {
             setText(event.target.value)

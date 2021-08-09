@@ -1,12 +1,21 @@
 .chatroomContainer {
   justify-content: center;
   align-items: center;
-  border: 2px solid red;
   border-radius: 8px;
-  background-color: black;
+  background-color: rgba(5, 5, 5, 0.212);
   width: 100%;
-  height: auto;
-}
-.postContainer {
 
+  /*The below introduces a scroll bar when there are more than max-height worth of messages*/
+  overflow-y: auto; /*shows vertical scrollbar*/
+  overflow-x: hidden; /*hides horizontal scroll bar*/
+  max-height: 2000px; 
+}
+
+#messagetextarea {
+  background: rgb(128, 0, 0);
+  height: 100px;
+}
+
+.postContainer {
+  background-color: hsla(0, 91%, 71%, 0.301);
 }

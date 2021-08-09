@@ -138,6 +138,7 @@ input[type=text], input[type=email], input[type=password], select, textarea  {
   letter-spacing: 1px;
   background-color: hsla(51, 91%, 71%, 0.301);
 }
+
 /* Style the submit button with a specific background color etc */
 input[type=submit] {
   background-color: hsla(51, 100%, 50%, 0.774);

@@ -1,8 +1,8 @@
 .messagecontainer {
   position: relative;
-  border: 1px solid red;
+  border: hsla(0, 0%, 100%, 0.897);
   border-radius: 4px;
-  background-color: #202020;
+  background-color: hsla(0, 1%, 62%, 0.226);
   color: white;
   margin: 1em;
   min-height: 5em;
@@ -38,3 +38,5 @@
   position: absolute;
   bottom: .25em;
 }
+
+
