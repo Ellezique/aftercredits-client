@@ -36,14 +36,23 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div >
+      <video src='https://res.cloudinary.com/ellezique/video/upload/v1628311932/smokeloop_oubxna.mp4
+'autoPlay loop muted/>
+      <div className="homecontainer">
       {loading ?
-        <p>LOADING</p>
+        <p>LOADING...</p>
       :  // ALL CARDS
         <>
           {!isSelected ?
             <>
-              <h1>HOME PAGE</h1>
+              <h1>Choose a movie/series</h1>
+              <p>Discussions and chatter after the credits roll.</p>
+              <Link to='/CreateCard'>
+                <Button onClick={() => console.log(cardList)}
+                  text='Create Card'
+                />
+              </Link>
               <div className='cardsContainer'>
                 {cardList.map((card, index) => {
                   const { Title, Poster } = card
@@ -51,18 +60,14 @@ export default function Home() {
                     <Card key={index} title={Title} imgSrc={Poster} onClick={() => handleClick(card)} />
                   )
                 })}
-              </div>
-              <Link to='/CreateCard'>
-                <Button onClick={() => console.log(cardList)}
-                  text='Create Card'
-                />
-              </Link>
+              </div>  
             </>
             :  // SELECTED CARD
             <Card title={selectedCard.Title} imgSrc={selectedCard.Poster} releaseDate={selectedCard.Released} selected={true} />
           }
         </>
       }
+      </div>
     </div>
   )
 }
