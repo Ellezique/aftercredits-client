@@ -36,7 +36,8 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className='gencontainer' >
+      <video src='https://res.cloudinary.com/ellezique/video/upload/v1628310794/background_sgqbly.mp4'autoPlay loop muted/>
       {loading ?
         <p>LOADING</p>
       :  // ALL CARDS

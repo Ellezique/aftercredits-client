@@ -11,7 +11,7 @@ test('The name Gizelle, should render', ()=> {
   const { getByText } = render(<Contact />)
   expect(getByText('Gizelle')).toBeInTheDocument()
 }),
-test('The text for the github link should render', ()=> {
+test('The following text should render: https://github.com/Ellezique', ()=> {
   const { getByText } = render(<Contact />)
   expect(getByText('https://github.com/Ellezique')).toBeInTheDocument()
 }),
@@ -19,7 +19,7 @@ test('The name Chris, should render', ()=> {
   const { getByText } = render(<Contact />)
   expect(getByText('Chris')).toBeInTheDocument()
 }),
-test('The github link should render', ()=> {
+test('The The following text should render: https://github.com/chris-gibs', ()=> {
   const { getByText } = render(<Contact />)
   expect(getByText('https://github.com/chris-gibs')).toBeInTheDocument()
 }),

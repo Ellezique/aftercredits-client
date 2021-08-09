@@ -17,7 +17,7 @@ export default function Message({message}) {
   }
 
   return (
-    <div className='container'>
+    <div className='messagecontainer'>
       {!editing ?
         <>
           <p className='user'>{username}</p>

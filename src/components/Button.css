@@ -1,16 +1,30 @@
-//General Button Styling
+/* General Button Styling */
 .button {
-  background-color: #DE0000; /* Red */
-  border: 2px solid white;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 12px;
+  background-color: hsl(0, 100%, 44%);  /*Red */
+  /* border: 2px solid white; */
+  color: hsl(0, 0%, 100%);
+  /* padding: 15px 32px; */
+  /* text-align: center; */
+  /* text-decoration: none; */
+  /* display: inline-block; */
+  /* font-size: 16px; */
+  font-size: 18px;
+  /* border-radius: 12px;  */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Limelight', cursive;
+  font-size: 15px;
+  padding: 5px;
+  margin: 5px;
 }
-//General Button Hover Effects
+
+/* General Button Hover Effects */
 .button:hover {
-  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  /* box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19); */
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+  box-shadow: 0px 0px 15px 3px hsla(0, 0%, 100%, 0.24);
+  transform: scale(1.05);
+  transition: transform .5s; /* Animation */
 }
