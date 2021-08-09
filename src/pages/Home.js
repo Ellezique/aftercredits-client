@@ -36,15 +36,18 @@ export default function Home() {
   }
 
   return (
-    <div className='gencontainer' >
-      <video src='https://res.cloudinary.com/ellezique/video/upload/v1628310794/background_sgqbly.mp4'autoPlay loop muted/>
+    <div >
+      <video src='https://res.cloudinary.com/ellezique/video/upload/v1628311932/smokeloop_oubxna.mp4
+'autoPlay loop muted/>
+      <div className="homecontainer">
       {loading ?
         <p>LOADING</p>
       :  // ALL CARDS
         <>
           {!isSelected ?
             <>
-              <h1>HOME PAGE</h1>
+              <h1>Choose a movie/series</h1>
+              <p>Discussions and chatter after the credits roll.</p>
               <div className='cardsContainer'>
                 {cardList.map((card, index) => {
                   const { Title, Poster } = card
@@ -64,6 +67,7 @@ export default function Home() {
           }
         </>
       }
+      </div>
     </div>
   )
 }
