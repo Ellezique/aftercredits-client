@@ -2,7 +2,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background-color: rgba(5, 5, 5, 0.212);
+  background-color: rgb(27, 23, 23);
   width: 100%;
 
   /*The below introduces a scroll bar when there are more than max-height worth of messages*/
@@ -12,10 +12,14 @@
 }
 
 #messagetextarea {
-  background: rgb(128, 0, 0);
+  background: rgb(0, 0, 0);
   height: 100px;
+  padding: 5px;
+  margin: 10px;
 }
 
 .postContainer {
-  background-color: hsla(0, 91%, 71%, 0.301);
+  background-color: hsla(0, 88%, 23%, 0.514);
+  margin: 5px;
+  padding-right: 20px;
 }
