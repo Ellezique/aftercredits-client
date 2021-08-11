@@ -62,7 +62,7 @@ export default function Home() {
                 })}
               </div>  
             </>
-            :  // SELECTED CARD
+            :  // SELECTED 
             <Card title={selectedCard.Title} imgSrc={selectedCard.Poster} releaseDate={selectedCard.Released} selected={true} />
           }
         </>

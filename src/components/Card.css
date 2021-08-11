@@ -12,10 +12,13 @@
   /* height: auto; */
   cursor: pointer;
   border-radius: 4px;
-  max-width: 100vw; 
+  /* max-width: 100vw;  */
   margin-top: 5px;
-  margin-bottom: 80vh; /*allows users to scroll down below the movie card but still see the chatroom*/
-  padding-bottom: 0px;
+  /*margin-bottom: 80vh; /*allows users to scroll down below the movie card but still see the chatroom*/
+        /* padding-bottom: 0px; */
+
+
+      
 }
 
 .cardContainer:hover {
@@ -31,3 +34,15 @@
 */
 
 
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .cardContainer {
+   
+  }
+}
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .cardContainer{
+   
+  }
+}
