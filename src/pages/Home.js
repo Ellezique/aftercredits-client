@@ -7,17 +7,22 @@ import './Home.css'
 
 export default function Home() {
   const [cardList] = useState([])
+  const [cardsData, setCardsData] = useState([])
+  const [cardId, setCardId] = useState()
+  const [messagesList, setMessagesList] = useState([])
   const [isSelected, setIsSelected] = useState(false)
   const [selectedCard, setSelectedCard] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     getCardIds()
-  })
+  },[])
 
   async function getCardIds() {
     // GET IDS FROM SERVER
     const cardIds = await Api.serverApi.cards.getAll()
+    console.log(cardIds.data)
+    setCardsData(cardIds.data)
     // GET MOVIE DETAILS FROM MOVIE API
     await Promise.all(
       cardIds.data.map(async(card)=> {
@@ -28,12 +33,27 @@ export default function Home() {
     setLoading(false)
   }
 
+  // function getCardId() {
+  //   console.log('getcardId')
+  //   const cardId = cardsData.filter(card=> card.imdb_id === selectedCard.imdbId)
+  //   setCardId(cardId)
+  //   getMessages()
+  // }
+
+  async function getMessages() {
+    const messages = await Api.serverApi.messages.getAll()
+    const list = messages.filter(message=> message.card_id === selectedCard.id)
+    setMessagesList(list)
+  }
+
   function handleClick(card) {
     //hide the other cards
     setIsSelected(true)
     //Put selected card's data into state to be used in render
     setSelectedCard(card)
     console.log(card)
+    getMessages()
+    // getCardId()
   }
 
   return (
@@ -65,7 +85,7 @@ export default function Home() {
             </>
             :  // SELECTED CARD
             <Card
-              imdbId={selectedCard.imdbId}
+            messagesList={messagesList}
               title={selectedCard.Title}
               imgSrc={selectedCard.Poster}
               releaseDate={selectedCard.Released}

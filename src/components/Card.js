@@ -3,10 +3,9 @@ import { useGlobalState } from '../utils/stateContext'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Chatroom from './Chatroom'
-import Api from '../utils/Api'
 import './Card.css'
 
-export default function Card({ imdbId, title, imgSrc, releaseDate, onClick, selected, genre, plot, actors }) {
+export default function Card({messagesList, title, imgSrc, releaseDate, onClick, selected, genre, plot, actors}) {
   const [chatroom, setChatroom] = useState(false)
   const [showMore, setShowMore] = useState(false)
   // const [spoilerChatroom, setSpoilerChatroom] = useState(false)
@@ -34,17 +33,6 @@ export default function Card({ imdbId, title, imgSrc, releaseDate, onClick, sele
     //   setChatroom(true),
     //   setSpoilerChatroom(false)
     // )
-  }
-
-  imdbId && getCardId()
-
-  async function getCardId() {
-    const cardId = await Api.serverApi.cards.getOne(imdbId)
-    getMessagesByCardId(cardId)
-  }
-
-  async function getMessagesByCardId(cardId) {
-
   }
 
   return (
@@ -86,11 +74,11 @@ export default function Card({ imdbId, title, imgSrc, releaseDate, onClick, sele
                 setChatroom(!chatroom)
               }}
             />
-            {chatroom && <Chatroom />}
+            {chatroom && <Chatroom messages={messagesList}/>}
             {/* {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>} */}
           </>
         }
-      </div>
+        </div>
     </div>
   )
 }
