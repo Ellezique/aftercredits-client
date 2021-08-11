@@ -1,6 +1,20 @@
-PORT=8000
+# This is the front end of a full stack app.
+Access the github repository for this front end app at: https://github.com/Ellezique/aftercredits-client
 
-BING MAPS API:
+Access the github repository for the backend app at: https://github.com/Ellezique/aftercredits-server
+
+Access the full README PART A for planning and project information: https://github.com/Ellezique/Full-Stack-App-PART-A
+
+## Setup REACT CLIENT APP
+- Clone this repo to your local development environment (or make a fork and clone the fork to your local)
+- Change into the project directory `$ cd after-credits`
+- Install dependencies: `$ yarn install`
+- Run the application: `$ yarn start`
+- Check the ports and open localhost in your browser and verify that the application runs as expected
+
+
+
+## BING MAPS API:
 - Get your own api key at https://www.bingmapsportal.com/ (log in with an outlook account such as a hotmail email address, then click on the My account tab > My keys, copy that key and paste over xxxxx)
 - In .env add: 
 REACT_APP_BING_API_KEY=xxxxxxxxx
@@ -10,23 +24,16 @@ Bing maps documentation: https://docs.microsoft.com/en-us/bingmaps/v8-web-contro
 Bing Maps -React package: https://www.npmjs.com/package/bingmaps-react
 
 
-![Breakpoints](public/images/breakpoints.PNG)
-NOTE THE IPADS are 1024px, so tablet breakpoint at 1024
 
+## IMDB API
+- Get your own api key from Rapid API at https://rapidapi.com/rapidapi/api/movie-database-imdb-alternative/ 
+- In .env add: 
+REACT_APP_MOVIE_API_KEY=xxxxxxxxx
 
-
-
+-----------
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) using the basic template.
 
-## What's in the basic template?
-- It includes node-sass, and a style.scss (and removes all .css files)
-- It doesn't use serviceWorker
-- It replaces the react favicon with a flower of life icon
-
-## Available Scripts
-
-In the project directory, you can run:
 
 ### `yarn start`
 
@@ -66,27 +73,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
