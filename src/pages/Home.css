@@ -54,7 +54,7 @@
   }
 }
 /* Mobile */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 767px) {
   .cardsContainer{
     margin-left: 0px;
     margin-right: 0px;
