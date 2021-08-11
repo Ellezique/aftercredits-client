@@ -1,0 +1,56 @@
+.createcontainer {
+  padding-top: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.imdbcontainer {
+  max-width: 100vw;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 0.2rem;  
+  background:rgba(0, 0, 0, 0.438);
+  transition: transform .5s; /* Animation */
+}
+@media screen and (max-width: 1024px) {
+  .createcontainer {
+    padding-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .imdbcontainer {
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 5px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .imdbcontainer {
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+.imdbcontainer:hover {
+  background:rgba(0, 0, 0, 0.651);
+  box-shadow: 0px 0px 15px 3px hsla(0, 0%, 100%, 0.24);
+  transform: scale(1.005); /* (zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.imdbimage {
+  width: 100%;
+  border-radius: 0.2rem; 
+}
+
+
+
+/* .imdbcontainer {
+  display: inline-block;
+  width: 25%; // Show 4 images in a row normally
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .imdbcontainer {
+    width: 100%; 
+  }
+} */
