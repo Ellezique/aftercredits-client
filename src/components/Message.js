@@ -20,7 +20,7 @@ export default function Message({message}) {
     <div className='messagecontainer'>
       {!editing ?
         <>
-          <p className='user'>{username}</p>
+          <h4 className='user'>{username}</h4>
           <p className='text'>{messageText}</p>
           <p className='date'>{date}</p>
           <div className='options'>
