@@ -17,20 +17,34 @@
   margin-top: 50px;
   /*margin-bottom: 80vh; /*allows users to scroll down below the movie card but still see the chatroom*/
         /* padding-bottom: 0px; */
-  height: 650px;
+  /* min-height: 100vw; */
 }
 
 .cardContainer:hover {
   box-shadow: 0px 0px 15px 3px hsla(0, 0%, 100%, 0.24);
   transform: scale(1.01);
 }
+/* 
+.showMoreContainer {
+  background-color: hsl(0, 0%, 0%);
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; */
 
+/* } */
+
+/* .showMoreBox{
+  text-align: left;
+
+} */
 /* .cardImage {
   max-width: 100%;
   max-width: 400px;
   height: auto;
 } 
 */
+
 
 
 /* Tablet */
