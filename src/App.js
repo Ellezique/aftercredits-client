@@ -35,19 +35,6 @@ return (
         <Switch>
             <Route exact path='/' component={Home} />
             <Redirect exact from="/reload" to="/" />
-            {/*??? <Route exact path="/cards/:id">
-              <Redirect to="/cards/:id/messages"/>
-            </Route> */}
-            {/* <Route exact path='/messages' 
-              render={(props)=> <Messages{...props} messageList={messageList}/>}
-              /> */}
-            {/* <Route exact path="/newmessage"
-              render{()=> <MessageForm loggedInUser={loggedInUser} addMessage={addMessage}/>}
-            /> */}
-            {/* <Route exact path="messages/:id"
-              render={(props)=> <Message {...props}
-                message={getMessage(props.match.params.id)}/>}
-            /> */}
             <Route exact path='/LogIn' 
               render={(props)=> <LogIn {...props} activateUser={activateUser}/>}
             />

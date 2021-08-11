@@ -33,6 +33,7 @@ export default function Home() {
     setIsSelected(true)
     //Put selected card's data into state to be used in render
     setSelectedCard(card)
+    console.log(card)
   }
 
   return (
@@ -62,8 +63,17 @@ export default function Home() {
                 })}
               </div>  
             </>
-            :  // SELECTED 
-            <Card title={selectedCard.Title} imgSrc={selectedCard.Poster} releaseDate={selectedCard.Released} selected={true} />
+            :  // SELECTED CARD
+            <Card
+              imdbId={selectedCard.imdbId}
+              title={selectedCard.Title}
+              imgSrc={selectedCard.Poster}
+              releaseDate={selectedCard.Released}
+              selected={true}
+              genre={selectedCard.Genre}
+              plot={selectedCard.Plot}
+              actors={selectedCard.Actors}
+            />
           }
         </>
       }

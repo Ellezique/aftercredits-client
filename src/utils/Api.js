@@ -85,8 +85,8 @@ const Api = {
       getAll() {
         return api.get('/cards', serverConfig)
       },
-      getOne() {
-        return api.get('/cards/:id', serverConfig)
+      getOne(payload) {
+        return api.get(`/cards/${payload}`, serverConfig)
       },
       create(payload) {
         return api.post('/cards', payload, serverConfig)

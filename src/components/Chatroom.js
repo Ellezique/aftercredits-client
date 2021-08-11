@@ -4,14 +4,7 @@ import Button from './Button'
 import Api from './../utils/Api'
 import './Chatroom.css'
 
-export default function Chatroom({spoilerRoom}) {
-  //Commented out until we get full api integration
-  // const [messages, setMessages] = useState()
-
-  //make api call to server and use loading until data retrieved
-  // use imdb id as params for messages call
-  //call for messages linked to specific card id
-  //sort messages based on spoiler boolean
+export default function Chatroom({spoilerRoom, messages}) {
 
   // get messages from database once api/server are implemented
   const messagesList = [
@@ -22,26 +15,24 @@ export default function Chatroom({spoilerRoom}) {
     {username: 'ICantHelpMyself', text: 'Tony Stark dies in the end, GG', date: '12/07/2021', spoiler: true},
   ]
 
-  const messages = spoilerRoom
-  ? messagesList.filter(message => message.spoiler === true)
-  : messagesList.filter(message => message.spoiler === false)
+  // const messages = spoilerRoom
+  // ? messagesList.filter(message => message.spoiler === true)
+  // : messagesList.filter(message => message.spoiler === false)
 
   const [text, setText] = useState('')
 
   return (
     <div className='chatroomContainer'>
       {/* RENDER MESSAGES*/}
-      {messages.map((message, index) => {
+      {messagesList.map((message, index) => {
         return (
           <Message key={index} message={message}/>
         )
       })}
       {/* CREATE MESSAGES */}
       <div className='postContainer'>
-    
-        {/* <label>Enter your message here: </label> */}
         <textarea 
-        id ="messagetextarea"
+          id ="messagetextarea"
           placeholder="Enter your message here:"
           value={text}
           onChange={(event) => {
