@@ -6,9 +6,9 @@
   width: 100%;
 
   /*The below introduces a scroll bar when there are more than max-height worth of messages*/
-  overflow-y: auto; /*shows vertical scrollbar*/
-  overflow-x: hidden; /*hides horizontal scroll bar*/
-  max-height: 2000px; 
+  /*overflow-y: auto; /*shows vertical scrollbar*/
+  /*overflow-x: hidden; /*hides horizontal scroll bar*/
+  /*max-height: 2000px; */
 }
 
 #messagetextarea {
