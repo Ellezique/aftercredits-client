@@ -27,7 +27,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
     if(messages.length === 0 || messageCreated === true) {
       getMessages()
       .then((data)=>{
-        setMessages(data.filter(message => message.card === cardImdbId).reverse())
+        setMessages(data.filter(message => message.card === cardImdbId))
         setLoadingMessages(false)
         setMessageCreated(false)
       })
@@ -58,31 +58,32 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
         <p>LOADING...</p>
       :
         <>
-             {/* CREATE MESSAGES */}
-             <div className='postContainer'>
-            <textarea 
-              id ="messagetextarea"
-              name='m_text'
-              placeholder="Enter your message here:"
-              value={text}
-              onChange={handleChange}
-            />
-            <Button
-              text='Post'
-              callback={() => {
-                console.log('post')
-                createMessage()
-                setText('')
-              }}
-            />
-          </div>
-          {/* RENDER MESSAGES*/}
-          {messages.map((message, index) => {
-            return (
-              <Message key={index} message={message} messages={messages} setMessages={setMessages}/>
-            )
-          })}
-     
+            {/* CREATE MESSAGES */}
+            <div className='postContainer'>
+              <textarea 
+                id ="messagetextarea"
+                name='m_text'
+                placeholder="Enter your message here:"
+                value={text}
+                onChange={handleChange}
+              />
+              <Button
+                text='Post'
+                callback={() => {
+                  console.log('post')
+                  createMessage()
+                  setText('')
+                }}
+              />
+            </div>
+            <div>
+              {/* RENDER MESSAGES*/}
+              {messages.map((message, index) => {
+                return (
+                  <Message key={index} message={message} messages={messages} setMessages={setMessages}/>
+                )
+              })}
+            </div>
         </>
       }
     </div>
