@@ -5,12 +5,16 @@ import Api from './../utils/Api'
 import './Chatroom.css'
 
 export default function Chatroom({spoilerRoom, messages}) {
-
+  
   // const messages = spoilerRoom
   // ? messagesList.filter(message => message.spoiler === true)
   // : messagesList.filter(message => message.spoiler === false)
 
   const [text, setText] = useState('')
+
+
+
+  
 
   return (
     <div className='chatroomContainer'>

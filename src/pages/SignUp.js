@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Api from './../utils/Api'
+import { useGlobalState } from './../utils/stateContext'
 
 //Styling is handled by ContactForm.css
 
@@ -9,6 +10,8 @@ import Api from './../utils/Api'
 // (username: "testuser", email: "test@email.com", password: "123456", password_confirmation: "123456")
 
 const SignUp = ({ history, activateUser }) => {
+  const {dispatch} = useGlobalState()
+
   const initialFormData = {
     username: "",
     email: "",
@@ -34,7 +37,9 @@ const SignUp = ({ history, activateUser }) => {
   }
 
   async function createUser(formData) {
-    await Api.serverApi.users.auth.signup(formData)
+    const response = await Api.serverApi.users.auth.signup(formData)
+    console.log('signup resp',response)
+    dispatch({type: 'userToken', data: response.data.jwt})
   }
 
   return (

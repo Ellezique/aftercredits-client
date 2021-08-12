@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react'
+import React, { useReducer } from 'react'
 import { StateContext } from './utils/stateContext'
 import reducer from './utils/stateReducer'
 
@@ -17,26 +17,24 @@ import CreateCard from './pages/CreateCard'
 
 const App = () => {
   const initialState = {
-    isLoggedIn: false,
+    cards: [],
+    cardsData: [],
+    loggedInUser: null,
+    token: null,
+    loading: true,
   }
   const [store, dispatch] = useReducer(reducer, initialState)
-
-  const [loggedInUser, setLoggedInUser] = useState("")
-
-  function activateUser(name){
-    setLoggedInUser(name)
-  }
 
 return (
     <div className="App">
       <StateContext.Provider value={{store, dispatch}}>
       <BrowserRouter>
-      <Navbar loggedInUser={loggedInUser} activateUser={activateUser}/>
+      <Navbar/>
         <Switch>
             <Route exact path='/' component={Home} />
             <Redirect exact from="/reload" to="/" />
             <Route exact path='/LogIn' 
-              render={(props)=> <LogIn {...props} activateUser={activateUser}/>}
+              render={(props)=> <LogIn {...props} />}
             />
             <Route exact path='/SignUp' component={SignUp} />
             <Route exact path='/Contact' component={Contact} />

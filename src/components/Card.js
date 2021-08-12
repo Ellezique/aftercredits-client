@@ -1,38 +1,48 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useGlobalState } from '../utils/stateContext'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Chatroom from './Chatroom'
+import Api from '../utils/Api'
 import './Card.css'
 
-export default function Card({messagesList, title, imgSrc, releaseDate, onClick, selected, genre, plot, actors}) {
+export default function Card({cardId, title, imgSrc, releaseDate, onClick, selected, genre, plot, actors}) {
   const [chatroom, setChatroom] = useState(false)
   const [showMore, setShowMore] = useState(false)
+  const [messages, setMessages] = useState([])
   // const [spoilerChatroom, setSpoilerChatroom] = useState(false)
   const { store } = useGlobalState()
-  const { isLoggedIn } = store
+  const { loggedInUser } = store
 
-  function loggedInStatus(spoiler) {
-    if (!isLoggedIn) {
-      <Link to='/LogIn' />
+  // function room(spoiler) {
+  //   // else if(spoiler) {
+  //   //   setSpoilerChatroom(true)
+  //   //   setChatroom(false)
+  //   // } else {
+  //   //   setChatroom(true)
+  //   //   setSpoilerChatroom(false)
+  //   // }
+
+  //   // !isLoggedIn ?
+  //   //   <Link to='/LogIn'/>
+  //   // : spoiler ? (
+  //   //   setSpoilerChatroom(true),
+  //   //   setChatroom(false)
+  //   // ) : (
+  //   //   setChatroom(true),
+  //   //   setSpoilerChatroom(false)
+  //   // )
+  // }
+
+  useEffect(() => {
+    if(chatroom) {
+      getMessages()
     }
-    // else if(spoiler) {
-    //   setSpoilerChatroom(true)
-    //   setChatroom(false)
-    // } else {
-    //   setChatroom(true)
-    //   setSpoilerChatroom(false)
-    // }
+  })
 
-    // !isLoggedIn ?
-    //   <Link to='/LogIn'/>
-    // : spoiler ? (
-    //   setSpoilerChatroom(true),
-    //   setChatroom(false)
-    // ) : (
-    //   setChatroom(true),
-    //   setSpoilerChatroom(false)
-    // )
+  async function getMessages() {
+    const allMessages = await Api.serverApi.messages.getAll()
+    setMessages(allMessages.filter(message=> message.card_id === cardId))
   }
 
   return (
@@ -57,24 +67,25 @@ export default function Card({messagesList, title, imgSrc, releaseDate, onClick,
             {/* <Button
                   text='Spoiler Chatroom'
                   callback={() => {
-                    loggedInStatus(true)
+                    room(true)
                   }}
                 /> */}
             <Button
               text='Show More'
               callback={() => {
-                loggedInStatus(false)
                 setShowMore(!showMore)
               }}
             />
+            <Link to={!loggedInUser ? '/LogIn' : '/'}>
             <Button
               text='Chatroom'
               callback={() => {
-                loggedInStatus(false)
-                setChatroom(!chatroom)
+                loggedInUser && setChatroom(!chatroom)
               }}
             />
-            {chatroom && <Chatroom messages={messagesList}/>}
+            </Link>
+            {/* If chatroom open, feed chatroom the filtered messages */}
+            {chatroom && <Chatroom messages={messages}/>}
             {/* {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>} */}
           </>
         }
