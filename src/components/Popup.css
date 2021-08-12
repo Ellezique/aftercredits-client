@@ -1,15 +1,16 @@
 .popupContainer {
   position: fixed;
   left: 0;
-  margin-top: 100px;
+  /* margin-top: 100px; */
+  
 }
  
 .popupBox {
-  
+  margin: 15% auto; /* 15% from the top and centered */
   width: 70vw;
-  margin: 0 auto;
-  height: auto;
-  max-height: 70vh;
+  /* margin: 0 auto; */
+  /* height: auto; */
+  /* max-height: 70vh; */
   /* margin-top: calc(100vh - 85vh - 20px); */
   background: rgb(77, 15, 10);
   color: red;
