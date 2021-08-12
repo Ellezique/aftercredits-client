@@ -1,23 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Button from './Button'
 import Api from '../utils/Api'
 import Popup from './Popup'
+import { useGlobalState } from '../utils/stateContext'
 import './Message.css'
 
-export default function Message({message}) {
-  const {username, text, date, id, card} = message
+export default function Message({message, messages, setMessages}) {
+  const { store } = useGlobalState()
+  const { loggedInUser } = store
+  const { username, text, posted, id } = message
   const [editing, setEditing] = useState(false)
   const [options, setOptions] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
   const [messageText, setMessageText] = useState(text)
 
+  useEffect(()=>{
+
+  },[messages])
+
   async function updateMessage() {
-    const payload = {text:text, id:id, card:card}
-    await Api.serverApi.messages.edit(payload)
+    const payload = {m_text:messageText, id:id}
+    const response = await Api.serverApi.messages.edit(payload)
+    console.log(response)
   }
 
   async function deleteMessage() {
     await Api.serverApi.messages.delete(id)
+    const index = messages.indexOf(message)
+    console.log(index)
+    if (index > -1) {
+      setMessages(messages.splice(index, 1))
+    }
   }
 
   function handleChange(event){
@@ -30,15 +43,17 @@ export default function Message({message}) {
         <>
           <h4 className='user'>{username}</h4>
           <p className='text'>{messageText}</p>
-          <p className='date'>{date}</p>
-          <div className='options'>
-            <Button 
-              text='Options'
-              callback={() => {
-                setOptions(!options)
-              }}
-            />
-          </div>
+          <p className='posted'>{posted}</p>
+          {loggedInUser === username &&
+            <div className='options'>
+              <Button 
+                text='Options'
+                callback={() => {
+                  setOptions(!options)
+                }}
+              />
+            </div>
+          }
           {options &&
             <div className='options'>
               <Button 

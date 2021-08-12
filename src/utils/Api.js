@@ -38,10 +38,10 @@ const Api = {
         return api.post('/users', payload, serverConfig)
       },
       edit(payload) {
-        return api.post('/users/id', payload, serverConfig)
+        return api.post(`/users/${payload.id}`, payload, serverConfig)
       },
       delete(payload) {
-        return api.post('/users/id', payload, serverConfig)
+        return api.post(`/users/${payload.id}`, payload, serverConfig)
       },
       // AUTHORISATION ROUTES
       auth: {
@@ -61,8 +61,8 @@ const Api = {
       getAll() {
         return api.get('/messages', serverConfig)
       },
-      getOne() {
-        return api.get('/messages/:id', serverConfig)
+      getOne(payload) {
+        return api.get(`/messages/${payload.id}`, serverConfig)
       },
       getUserAll() {
         return api.get('/messages/user', serverConfig)
@@ -71,8 +71,7 @@ const Api = {
         return api.post('/messages', payload, serverConfig)
       },
       edit(payload) {
-        return api.put(`/messages/${payload.id}`, {card_id: payload.card,
-          m_text: payload.text}, serverConfig)
+        return api.put(`/messages/${payload.id}`, {m_text: payload.m_text}, serverConfig)
       },
       delete(id) {
         return api.delete(`/messages/${id}`, serverConfig)
@@ -87,10 +86,10 @@ const Api = {
         return api.post('/cards', payload, serverConfig)
       },
       edit(payload) {
-        return api.put('/cards/:id', payload, serverConfig)
+        return api.put(`/cards/${payload.id}`, payload, serverConfig)
       },
       delete(payload) {
-        return api.delete('/cards/:id', payload, serverConfig)
+        return api.delete(`/cards/${payload.id}`, payload, serverConfig)
       },
     }
   },

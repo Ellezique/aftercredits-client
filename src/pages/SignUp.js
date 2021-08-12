@@ -30,7 +30,6 @@ const SignUp = ({ history, activateUser }) => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    console.log(formData)
     createUser(formData)
     .then(({username, jwt})=>{
       sessionStorage.setItem('token', jwt)

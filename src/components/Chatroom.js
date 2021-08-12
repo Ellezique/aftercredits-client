@@ -61,7 +61,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
           {/* RENDER MESSAGES*/}
           {messages.map((message, index) => {
             return (
-              <Message key={index} message={message}/>
+              <Message key={index} message={message} messages={messages} setMessages={setMessages}/>
             )
           })}
           {/* CREATE MESSAGES */}
