@@ -47,9 +47,9 @@
 
 /* Tablet */
 @media screen and (max-width: 1024px) {
-  .cardContainer {
+  /* .cardContainer {
    
-  }
+  } */
 }
 /* Galaxy fold */
 @media screen and (max-width: 280px) {
