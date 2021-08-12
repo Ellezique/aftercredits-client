@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useGlobalState } from '../utils/stateContext'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
 import Chatroom from './Chatroom'
-import Api from '../utils/Api'
 import './Card.css'
 
-export default function Card({cardId, title, imgSrc, releaseDate, onClick, selected, genre, plot, actors}) {
+export default function Card({cardId, cardImdbId, title, imgSrc, releaseDate, onClick, selected, genre, plot, actors}) {
   const [chatroom, setChatroom] = useState(false)
   const [showMore, setShowMore] = useState(false)
-  const [messages, setMessages] = useState([])
   // const [spoilerChatroom, setSpoilerChatroom] = useState(false)
-  const [loadingMessages, setLoadingMessages] = useState(true)
   const { store } = useGlobalState()
   const { loggedInUser } = store
 
@@ -34,22 +31,6 @@ export default function Card({cardId, title, imgSrc, releaseDate, onClick, selec
   //   //   setSpoilerChatroom(false)
   //   // )
   // }
-
-  useEffect(() => {
-    if(messages.length === 0) {
-      getMessages()
-      .then((data)=>{
-        setMessages(data.filter(message=> message.card === cardId))
-        setLoadingMessages(false)
-      })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[])
-
-  async function getMessages() {
-    const response = await Api.serverApi.messages.getAll()
-    return response.data
-  }
 
   return (
     <div className='cardContainer' onClick={onClick}>
@@ -91,7 +72,7 @@ export default function Card({cardId, title, imgSrc, releaseDate, onClick, selec
             />
             </Link>
             {/* If chatroom open, feed chatroom the filtered messages */}
-            {chatroom && <Chatroom loading={loadingMessages} messages={messages}/>}
+            {chatroom && <Chatroom cardId={cardId} cardImdbId={cardImdbId}/>}
             {/* {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>} */}
           </>
         }

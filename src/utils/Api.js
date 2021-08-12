@@ -51,9 +51,6 @@ const Api = {
         signin(payload) {
           return api.post('/auth/sign_in', payload, serverConfig)
         },
-        logout() {
-          return api.post('/auth/logout/', {/* something */}, serverConfig)
-        },
         resetPassword(payload) {
           return api.post('/auth/reset_password/', payload, serverConfig)
         }
@@ -74,19 +71,17 @@ const Api = {
         return api.post('/messages', payload, serverConfig)
       },
       edit(payload) {
-        return api.put('/messages/:id', payload, serverConfig)
+        return api.put(`/messages/${payload.id}`, {card_id: payload.card,
+          m_text: payload.text}, serverConfig)
       },
-      delete(payload) {
-        return api.delete('/messages/:id', payload, serverConfig)
+      delete(id) {
+        return api.delete(`/messages/${id}`, serverConfig)
       },
     },
     // CARD TABLE
     cards: {
       getAll() {
         return api.get('/cards', serverConfig)
-      },
-      getOne() {
-        return api.get(`/cards/:id`, serverConfig)
       },
       create(payload) {
         return api.post('/cards', payload, serverConfig)

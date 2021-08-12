@@ -8,10 +8,10 @@ const Navbar = () => {
   const {store, dispatch} = useGlobalState()
   const {loggedInUser} = store
 
-  function logout(e){
-    e.preventDefault()
+  function logout(){
+    sessionStorage.clear()
     dispatch({type: 'logout', data: null})
-    console.log("logout")
+    return "Logged out"
   }
   
     //BURGER MENU

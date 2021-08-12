@@ -8,7 +8,7 @@ import Api from './../utils/Api'
 // (username: "Gizelle", email: "gizelle205@hotmail.com", password: "password123456", password_confirmation: "password123456")
 // (username: "testuser", email: "test@email.com", password: "123456", password_confirmation: "123456")
 
-const LogIn = ({ history, activateUser }) => {
+const LogIn = ({ history }) => {
   const { dispatch } = useGlobalState()
   const initialFormData = {
     email: "",

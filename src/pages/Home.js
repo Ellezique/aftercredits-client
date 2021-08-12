@@ -11,6 +11,7 @@ export default function Home() {
   const { cards } = store
   const [cardsData, setCardsData] = useState([])
   const [cardId, setCardId] = useState()
+  const [cardImdbId, setCardImdbId] = useState()
   const [isSelected, setIsSelected] = useState(false)
   const [selectedCard, setSelectedCard] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -50,7 +51,13 @@ export default function Home() {
     setSelectedCard(card)
     //hide the other cards
     setIsSelected(true)
-    setCardId(card.imdbID)
+    console.log('card', card)
+    setCardImdbId(card.imdbID)
+    getCardId(card)
+  }
+
+  function getCardId(card) {
+    setCardId(cardsData.filter(carddata => carddata.imdb_id === card.imdbID)[0].id)
   }
 
   return (
@@ -83,6 +90,7 @@ export default function Home() {
             :  // SELECTED CARD
             <Card
               cardId={cardId}
+              cardImdbId={cardImdbId}
               title={selectedCard.Title}
               imgSrc={selectedCard.Poster}
               releaseDate={selectedCard.Released}

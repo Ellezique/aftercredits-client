@@ -1,16 +1,24 @@
 import React, { useState } from 'react'
 import Button from './Button'
-import './Message.css'
+import Api from '../utils/Api'
 import Popup from './Popup'
-
+import './Message.css'
 
 export default function Message({message}) {
-  const {username, text, date} = message
+  const {username, text, date, id, card} = message
   const [editing, setEditing] = useState(false)
   const [options, setOptions] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
   const [messageText, setMessageText] = useState(text)
 
+  async function updateMessage() {
+    const payload = {text:text, id:id, card:card}
+    await Api.serverApi.messages.edit(payload)
+  }
+
+  async function deleteMessage() {
+    await Api.serverApi.messages.delete(id)
+  }
 
   function handleChange(event){
     setMessageText(event.target.value)
@@ -36,6 +44,7 @@ export default function Message({message}) {
               <Button 
                 text='Edit'
                 callback={() => {
+                  console.log(message)
                   setOptions(!options)
                   setEditing(true)
                   console.log('edit')
@@ -58,8 +67,7 @@ export default function Message({message}) {
                 <Button 
                   text='Yes'
                   callback={() => {
-                    // DELETE REQUEST TO MESSAGE TABLE FOR MESSAGE/:id
-                    
+                    deleteMessage()
                     setOptions(false)
                     setPopupOpen(false)
                     console.log('Yes')
@@ -85,21 +93,17 @@ export default function Message({message}) {
             <Button 
               text='Save'
               callback={() => {
-                // PUT REQUEST TO MESSAGE TABLE FOR MESSAGE/:id
-
+                updateMessage()
                 setEditing(false)
                 console.log('save')
               }}
-              // icon='' grab later
             />
             <Button 
               text='Cancel'
               callback={() => {
-                // CANCEL
                 setEditing(false)
                 console.log('cancel')
               }}
-              // icon='' grab later
             />
           </div>
         </>
