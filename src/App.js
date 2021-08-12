@@ -19,8 +19,8 @@ const App = () => {
   const initialState = {
     cards: [],
     cardsData: [],
-    loggedInUser: null,
-    token: null,
+    loggedInUser: sessionStorage.getItem('user') || null,
+    token: sessionStorage.getItem('token') || null,
     loading: true,
   }
   const [store, dispatch] = useReducer(reducer, initialState)

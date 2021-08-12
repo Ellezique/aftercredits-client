@@ -34,6 +34,7 @@ const SignUp = ({ history, activateUser }) => {
     createUser(formData)
     .then(({username, jwt})=>{
       sessionStorage.setItem('token', jwt)
+      sessionStorage.setItem('user', username)
       dispatch({type: 'setLoggedInUser', data: username})
       dispatch({type: 'userToken', data: jwt})
     })

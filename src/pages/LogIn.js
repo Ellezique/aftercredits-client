@@ -31,6 +31,7 @@ const LogIn = ({ history, activateUser }) => {
     signIn(formData)
     .then(({username, jwt}) => {
       sessionStorage.setItem('token', jwt)
+      sessionStorage.setItem('user', username)
       dispatch({type: 'setLoggedInUser', data: username})
       dispatch({type: 'setToken', data: jwt})
     })
