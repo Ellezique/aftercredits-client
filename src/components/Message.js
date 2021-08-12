@@ -13,10 +13,15 @@ export default function Message({message, messages, setMessages}) {
   const [options, setOptions] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
   const [messageText, setMessageText] = useState(text)
+  const [messageDeleted, setMessageDeleted] = useState(false)
 
   useEffect(()=>{
-
-  },[messages])
+    if(messageDeleted){
+      deleteMessage()
+      setMessageDeleted(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[messageDeleted])
 
   async function updateMessage() {
     const payload = {m_text:messageText, id:id}
@@ -25,12 +30,14 @@ export default function Message({message, messages, setMessages}) {
   }
 
   async function deleteMessage() {
+    console.log(messages)
     await Api.serverApi.messages.delete(id)
     const index = messages.indexOf(message)
     console.log(index)
     if (index > -1) {
-      setMessages(messages.splice(index, 1))
+      setMessages(messages.slice(index, 1))
     }
+    console.log(messages)
   }
 
   function handleChange(event){
@@ -82,7 +89,7 @@ export default function Message({message, messages, setMessages}) {
                 <Button 
                   text='Yes'
                   callback={() => {
-                    deleteMessage()
+                    setMessageDeleted(true)
                     setOptions(false)
                     setPopupOpen(false)
                     console.log('Yes')
