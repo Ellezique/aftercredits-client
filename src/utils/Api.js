@@ -5,13 +5,13 @@ const api = axios.create({})
 
 // GRAB JWT
 // INSTANCE INTERCEPTORS
-// Api.interceptors.request.use((req) => {
-//   const jwt = localStorage.getItem('jwt')
-//   if (jwt) {
-//     req.headers["Authorization"] = `Bearer ${jwt}`
-//   }
-//   return req
-// })
+api.interceptors.request.use((req) => {
+  const token = sessionStorage.getItem('token')
+  if (token) {
+    req.headers["Authorization"] = `Bearer ${token}`
+  }
+  return req
+})
 
 // API KEYS
 const MOVIE_API_KEY = process.env.REACT_APP_MOVIE_API_KEY

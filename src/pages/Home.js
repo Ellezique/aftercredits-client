@@ -26,9 +26,6 @@ export default function Home() {
       setLoading(false)
       // dispatch({type: 'loading', data: false})
     }
-    if(selectedCard) {
-      console.log('yes it works here too')
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[cards, cardsData])
   
@@ -53,11 +50,7 @@ export default function Home() {
     setSelectedCard(card)
     //hide the other cards
     setIsSelected(true)
-    getCardId(card)
-  }
-
-  function getCardId(card) {
-    setCardId(cardsData.filter(carddata => carddata.imdb_id === card.imdbID)[0].id)
+    setCardId(card.imdbID)
   }
 
   return (

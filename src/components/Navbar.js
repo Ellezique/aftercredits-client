@@ -5,13 +5,13 @@ import './Navbar.css'
 import './General.css'
 
 const Navbar = () => {
-  const {store} = useGlobalState()
+  const {store, dispatch} = useGlobalState()
   const {loggedInUser} = store
-  
+
   function logout(e){
     e.preventDefault()
+    dispatch({type: 'logout', data: null})
     console.log("logout")
-
   }
   
     //BURGER MENU

@@ -11,6 +11,7 @@ export default function Card({cardId, title, imgSrc, releaseDate, onClick, selec
   const [showMore, setShowMore] = useState(false)
   const [messages, setMessages] = useState([])
   // const [spoilerChatroom, setSpoilerChatroom] = useState(false)
+  const [loadingMessages, setLoadingMessages] = useState(true)
   const { store } = useGlobalState()
   const { loggedInUser } = store
 
@@ -35,14 +36,19 @@ export default function Card({cardId, title, imgSrc, releaseDate, onClick, selec
   // }
 
   useEffect(() => {
-    if(chatroom) {
+    if(messages.length === 0) {
       getMessages()
+      .then((data)=>{
+        setMessages(data.filter(message=> message.card === cardId))
+        setLoadingMessages(false)
+      })
     }
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
 
   async function getMessages() {
-    const allMessages = await Api.serverApi.messages.getAll()
-    setMessages(allMessages.filter(message=> message.card_id === cardId))
+    const response = await Api.serverApi.messages.getAll()
+    return response.data
   }
 
   return (
@@ -85,7 +91,7 @@ export default function Card({cardId, title, imgSrc, releaseDate, onClick, selec
             />
             </Link>
             {/* If chatroom open, feed chatroom the filtered messages */}
-            {chatroom && <Chatroom messages={messages}/>}
+            {chatroom && <Chatroom loading={loadingMessages} messages={messages}/>}
             {/* {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>} */}
           </>
         }

@@ -32,6 +32,11 @@ const SignUp = ({ history, activateUser }) => {
     e.preventDefault()
     console.log(formData)
     createUser(formData)
+    .then(({username, jwt})=>{
+      sessionStorage.setItem('token', jwt)
+      dispatch({type: 'setLoggedInUser', data: username})
+      dispatch({type: 'userToken', data: jwt})
+    })
     // activateUser(formData.email)
     return history.push("/") //redirects user to home page after log in submit
   }
@@ -39,7 +44,7 @@ const SignUp = ({ history, activateUser }) => {
   async function createUser(formData) {
     const response = await Api.serverApi.users.auth.signup(formData)
     console.log('signup resp',response)
-    dispatch({type: 'userToken', data: response.data.jwt})
+    return response.data
   }
 
   return (

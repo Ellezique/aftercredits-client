@@ -24,6 +24,13 @@ export default function reducer(state, action) {
         token: action.data
       }
     }
+    case 'logout': {
+      return {
+        ...state,
+        loggedInUser: action.data,
+        token: action.data
+      }
+    }
     case 'loading': {
       return {
         ...state,

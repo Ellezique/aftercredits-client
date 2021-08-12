@@ -30,6 +30,7 @@ const LogIn = ({ history, activateUser }) => {
     // console.log(formData.password)
     signIn(formData)
     .then(({username, jwt}) => {
+      sessionStorage.setItem('token', jwt)
       dispatch({type: 'setLoggedInUser', data: username})
       dispatch({type: 'setToken', data: jwt})
     })
@@ -39,9 +40,8 @@ const LogIn = ({ history, activateUser }) => {
   }
 
   async function signIn(formData) {
-    console.log(formData)
     const response = await Api.serverApi.users.auth.signin(formData)
-    console.log('signIn resp', response)
+    console.log('signIn resp', response.data)
     return response.data
   }
 
