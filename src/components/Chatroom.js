@@ -58,14 +58,8 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
         <p>LOADING...</p>
       :
         <>
-          {/* RENDER MESSAGES*/}
-          {messages.map((message, index) => {
-            return (
-              <Message key={index} message={message} messages={messages} setMessages={setMessages}/>
-            )
-          })}
-          {/* CREATE MESSAGES */}
-          <div className='postContainer'>
+             {/* CREATE MESSAGES */}
+             <div className='postContainer'>
             <textarea 
               id ="messagetextarea"
               name='m_text'
@@ -82,6 +76,13 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
               }}
             />
           </div>
+          {/* RENDER MESSAGES*/}
+          {messages.map((message, index) => {
+            return (
+              <Message key={index} message={message} messages={messages} setMessages={setMessages}/>
+            )
+          })}
+     
         </>
       }
     </div>
