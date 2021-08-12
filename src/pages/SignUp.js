@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Api from './../utils/Api'
+import { useGlobalState } from './../utils/stateContext'
 
 //Styling is handled by ContactForm.css
 
@@ -9,6 +10,8 @@ import Api from './../utils/Api'
 // (username: "testuser", email: "test@email.com", password: "123456", password_confirmation: "123456")
 
 const SignUp = ({ history, activateUser }) => {
+  const {dispatch} = useGlobalState()
+
   const initialFormData = {
     username: "",
     email: "",
@@ -29,12 +32,20 @@ const SignUp = ({ history, activateUser }) => {
     e.preventDefault()
     console.log(formData)
     createUser(formData)
+    .then(({username, jwt})=>{
+      sessionStorage.setItem('token', jwt)
+      sessionStorage.setItem('user', username)
+      dispatch({type: 'setLoggedInUser', data: username})
+      dispatch({type: 'userToken', data: jwt})
+    })
     // activateUser(formData.email)
     return history.push("/") //redirects user to home page after log in submit
   }
 
   async function createUser(formData) {
-    await Api.serverApi.users.auth.signup(formData)
+    const response = await Api.serverApi.users.auth.signup(formData)
+    console.log('signup resp',response)
+    return response.data
   }
 
   return (

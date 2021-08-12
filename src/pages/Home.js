@@ -3,37 +3,54 @@ import Card from '../components/Card'
 import Button from '../components/Button'
 import { Link } from 'react-router-dom'
 import Api from '../utils/Api'
+import { useGlobalState } from '../utils/stateContext'
 import './Home.css'
 
 export default function Home() {
-  const [cardList] = useState([])
+  const { store, dispatch } = useGlobalState()
+  const { cards } = store
+  const [cardsData, setCardsData] = useState([])
+  const [cardId, setCardId] = useState()
   const [isSelected, setIsSelected] = useState(false)
   const [selectedCard, setSelectedCard] = useState(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getCardIds()
-  })
-
-  async function getCardIds() {
-    // GET IDS FROM SERVER
+    if(cardsData.length === 0){
+      getCardsData()
+    }
+    if(cardsData.length > 0 && cards.length === 0) {
+      getCards()
+    }
+    if(cards.length > 0) {
+      setLoading(false)
+      // dispatch({type: 'loading', data: false})
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[cards, cardsData])
+  
+  async function getCardsData() {
     const cardIds = await Api.serverApi.cards.getAll()
-    // GET MOVIE DETAILS FROM MOVIE API
-    await Promise.all(
-      cardIds.data.map(async(card)=> {
-        const response = await Api.movieApi.movies.getDetails({i: card.imdb_id})
-        cardList.push(response.data)
-      })
-    )
-    setLoading(false)
+    setCardsData(cardIds.data)
+    // dispatch({type: 'setCardsData', data: cardIds.data})
   }
 
-  function handleClick(card) {
-    //hide the other cards
-    setIsSelected(true)
+  async function getCards() {
+    const responses = await Promise.all(
+      cardsData.map(async(card)=> {
+        const response = await Api.movieApi.movies.getDetails({i: card.imdb_id})
+        return response
+      })
+    )
+    dispatch({type: 'setCards', data: responses})
+  }
+  
+  function selectCard(card) {
     //Put selected card's data into state to be used in render
     setSelectedCard(card)
-    console.log(card)
+    //hide the other cards
+    setIsSelected(true)
+    setCardId(card.imdbID)
   }
 
   return (
@@ -50,22 +67,22 @@ export default function Home() {
               <h1>Choose a movie/series</h1>
               <p>Discussions and chatter after the credits roll.</p>
               <Link to='/CreateCard'>
-                <Button onClick={() => console.log(cardList)}
+                <Button
                   text='Create Card'
                 />
               </Link>
               <div className='cardsContainer'>
-                {cardList.map((card, index) => {
-                  const { Title, Poster } = card
+                {cards.map((card, index) => {
+                  const { Title, Poster } = card.data
                   return (
-                    <Card key={index} title={Title} imgSrc={Poster} onClick={() => handleClick(card)} />
+                    <Card key={index} title={Title} imgSrc={Poster} onClick={() => selectCard(card.data)} />
                   )
                 })}
               </div>  
             </>
             :  // SELECTED CARD
             <Card
-              imdbId={selectedCard.imdbId}
+              cardId={cardId}
               title={selectedCard.Title}
               imgSrc={selectedCard.Poster}
               releaseDate={selectedCard.Released}

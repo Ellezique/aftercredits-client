@@ -29,14 +29,21 @@ const LogIn = ({ history, activateUser }) => {
     // console.log("You clicked login: ", formData.email)
     // console.log(formData.password)
     signIn(formData)
-    dispatch({type: 'isLoggedIn', data: true})
-    activateUser(formData.email)
+    .then(({username, jwt}) => {
+      sessionStorage.setItem('token', jwt)
+      sessionStorage.setItem('user', username)
+      dispatch({type: 'setLoggedInUser', data: username})
+      dispatch({type: 'setToken', data: jwt})
+    })
+    .catch((e)=>{console.log(e)})
+
     return history.push("/") //redirects user to home page after log in submit
   }
 
   async function signIn(formData) {
-    console.log(formData)
-    await Api.serverApi.users.auth.signin(formData)
+    const response = await Api.serverApi.users.auth.signin(formData)
+    console.log('signIn resp', response.data)
+    return response.data
   }
 
   return (

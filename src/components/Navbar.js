@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useGlobalState } from '../utils/stateContext'
 import './Navbar.css'
 import './General.css'
 
-const Navbar = ({loggedInUser, activateUser}) => {
+const Navbar = () => {
+  const {store, dispatch} = useGlobalState()
+  const {loggedInUser} = store
+
   function logout(e){
     e.preventDefault()
+    dispatch({type: 'logout', data: null})
     console.log("logout")
-    activateUser("")
   }
   
     //BURGER MENU
