@@ -56,6 +56,7 @@ const SignUp = ({ history, activateUser }) => {
             <label htmlFor="password">Confirm Password:</label>
             <input type="password" name="password_confirmation" id="password_confirmation" onChange={handleFormData} />
             <br></br>
+            <p>By signing up, you certify and confirm that you are at least 18 years old.</p>
             <input type="submit" value="Sign up" />
           </form>
           <br></br>
