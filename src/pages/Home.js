@@ -8,13 +8,14 @@ import './Home.css'
 
 export default function Home() {
   const { store, dispatch } = useGlobalState()
-  const { cards } = store
+  const { cards, isAdmin } = store
   const [cardsData, setCardsData] = useState([])
   const [cardId, setCardId] = useState()
   const [cardImdbId, setCardImdbId] = useState()
   const [isSelected, setIsSelected] = useState(false)
   const [selectedCard, setSelectedCard] = useState(null)
   const [loading, setLoading] = useState(true)
+  const [admin, setAdmin] = useState(false)
 
   useEffect(() => {
     if(cardsData.length === 0){
@@ -25,15 +26,16 @@ export default function Home() {
     }
     if(cards.length > 0) {
       setLoading(false)
-      // dispatch({type: 'loading', data: false})
+    }
+    if(isAdmin !== null) {
+      setAdmin(true)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[cards, cardsData])
+  },[cards, cardsData, isAdmin])
   
   async function getCardsData() {
     const cardIds = await Api.serverApi.cards.getAll()
     setCardsData(cardIds.data)
-    // dispatch({type: 'setCardsData', data: cardIds.data})
   }
 
   async function getCards() {
@@ -73,11 +75,14 @@ export default function Home() {
             <>
               <h1>Choose a movie/series</h1>
               <p>Discussions and chatter after the credits roll.</p>
-              <Link to='/CreateCard'>
-                <Button
-                  text='Create Card'
-                />
-              </Link>
+              {admin &&
+                <Link to='/CreateCard'>
+                  <Button
+                    text='Create Card'
+                    callback={()=> dispatch({type: 'setCardsData', data: cardsData})}
+                  />
+                </Link>
+              }
               <div className='cardsContainer'>
                 {cards.map((card, index) => {
                   const { Title, Poster } = card.data

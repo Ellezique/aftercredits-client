@@ -24,11 +24,18 @@ export default function reducer(state, action) {
         token: action.data
       }
     }
+    case 'setIsAdmin': {
+      return {
+        ...state,
+        isAdmin: action.data
+      }
+    }
     case 'logout': {
       return {
         ...state,
         loggedInUser: action.data,
-        token: action.data
+        token: action.data,
+        isAdmin: action.data
       }
     }
     case 'loading': {

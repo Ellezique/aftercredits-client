@@ -18,9 +18,9 @@ import CreateCard from './pages/CreateCard'
 const App = () => {
   const initialState = {
     cards: [],
-    cardsData: [],
     loggedInUser: sessionStorage.getItem('user') || null,
     token: sessionStorage.getItem('token') || null,
+    isAdmin: sessionStorage.getItem('admin') || null,
     loading: true,
   }
   const [store, dispatch] = useReducer(reducer, initialState)

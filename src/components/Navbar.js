@@ -11,7 +11,7 @@ const Navbar = () => {
   function logout(){
     sessionStorage.clear()
     dispatch({type: 'logout', data: null})
-    return "Logged out"
+    console.log("Logged out")
   }
   
     //BURGER MENU

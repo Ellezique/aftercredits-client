@@ -19,21 +19,22 @@ const LogIn = ({ history }) => {
   function handleFormData(e) {
     setFormData({
       ...formData,
-      //use e.tar.get.id or e.target.name
       [e.target.name]: e.target.value
     })
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    // console.log("You clicked login: ", formData.email)
-    // console.log(formData.password)
     signIn(formData)
-    .then(({username, jwt}) => {
+    .then((response) => {
+      console.log(response)
+      const {username, jwt, isAdmin} = response
       sessionStorage.setItem('token', jwt)
       sessionStorage.setItem('user', username)
+      sessionStorage.setItem('admin', isAdmin)
       dispatch({type: 'setLoggedInUser', data: username})
       dispatch({type: 'setToken', data: jwt})
+      dispatch({type: 'setIsAdmin', data: isAdmin})
     })
     .catch((e)=>{console.log(e)})
 

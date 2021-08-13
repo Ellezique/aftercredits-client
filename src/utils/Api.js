@@ -82,6 +82,9 @@ const Api = {
       getAll() {
         return api.get('/cards', serverConfig)
       },
+      getOne(payload) {
+        return api.get(`/cards/${payload.id}`, serverConfig)
+      },
       create(payload) {
         return api.post('/cards', payload, serverConfig)
       },

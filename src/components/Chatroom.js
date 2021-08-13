@@ -2,19 +2,16 @@ import React, { useState, useEffect } from 'react'
 import Message from './Message'
 import Button from './Button'
 import Api from './../utils/Api'
-// import { useGlobalState } from '../utils/stateContext'
 import './Chatroom.css'
 
 export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
-  // const { store } = useGlobalState()
-  // const { loggedInUser } = store
   const [messages, setMessages] = useState([])
   const [loadingMessages, setLoadingMessages] = useState(true)
   const [messageCreated, setMessageCreated] = useState(false)
-  const [text, setText] = useState()
+  const [m_text, setText] = useState()
   const initialFormData = {
     card_id: cardId,
-    m_text: text,
+    m_text: m_text,
   }
   const [formData, setFormData] = useState(initialFormData)
   
@@ -41,11 +38,13 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
   }
   
   async function createMessage() {
+    console.log('create',formData)
     await Api.serverApi.messages.create(formData)
     setMessageCreated(true)
   }
 
   function handleChange(event) {
+    console.log('handle',formData)
     setFormData({
 			...formData,
 			[event.target.name]: event.target.value
@@ -64,7 +63,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
                 id ="messagetextarea"
                 name='m_text'
                 placeholder="Enter your message here:"
-                value={text}
+                value={m_text}
                 onChange={handleChange}
               />
               <Button

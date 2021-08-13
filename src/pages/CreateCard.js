@@ -2,10 +2,24 @@ import React, { useState } from 'react'
 import Button from './../components/Button'
 import Api from './../utils/Api'
 import { Link } from 'react-router-dom'
+import { useGlobalState } from '../utils/stateContext'
 import './CreateCard.css'
 
 export default function CreateCard() {
+  const { store } = useGlobalState()
+  const { cards } = store
   const [cardId, setCardId] = useState('')
+
+  function createCard() {
+    // CHECK CARD DOESNT ALREADY EXIST
+    if(!cards.includes(cardId)) {
+      // ADD CARD TO BACKEND
+      Api.serverApi.cards.create({ imdb_id: cardId })
+      console.log('new card, what do you think?')
+    } else {
+      console.log('That card already exists')
+    }
+  }
 
   return (
     <>
@@ -40,9 +54,7 @@ export default function CreateCard() {
           <Button
             text='Create New Card'
             callback={() => {
-              // ADD CARD TO BACKEND
-              Api.serverApi.cards.create({ imdb_id: cardId })
-              console.log('new card, what do you think?')
+              createCard()
             }}
           />
         </Link>
