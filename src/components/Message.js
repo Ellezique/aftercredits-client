@@ -7,7 +7,7 @@ import './Message.css'
 
 export default function Message({message}) {
   const { store, dispatch } = useGlobalState()
-  const { loggedInUser, messages } = store
+  const { loggedInUser, messages, isAdmin } = store
   const { username, text, posted, id } = message
   const [editing, setEditing] = useState(false)
   const [options, setOptions] = useState(false)
@@ -38,7 +38,8 @@ export default function Message({message}) {
           <h4 className='user'>{username}</h4>
           <p className='text'>{messageText}</p>
           <p className='posted'>{posted}</p>
-          {loggedInUser === username &&
+          {/* Only the logged in user or an admin can see the options for their/all cards respectively */}
+          {(loggedInUser === username || isAdmin) &&
             <div className='options'>
               <Button 
                 text='Options'
@@ -50,22 +51,26 @@ export default function Message({message}) {
           }
           {options &&
             <div className='options'>
-              <Button 
-                text='Edit'
-                callback={() => {
-                  console.log(message)
-                  setOptions(!options)
-                  setEditing(true)
-                  console.log('edit')
-                }}
-              />
-              <Button 
-                text='Delete'
-                callback={() => {
-                  setPopupOpen(true)
-                  console.log('delete')
-                }}
-              />           
+              {loggedInUser === username &&
+                <Button 
+                  text='Edit'
+                  callback={() => {
+                    console.log(message)
+                    setOptions(!options)
+                    setEditing(true)
+                    console.log('edit')
+                  }}
+                />
+              }
+              {(loggedInUser === username || isAdmin) &&
+                <Button 
+                  text='Delete'
+                  callback={() => {
+                    setPopupOpen(true)
+                    console.log('delete')
+                  }}
+                /> 
+              }      
             </div>
           }
           {popupOpen &&

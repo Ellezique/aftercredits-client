@@ -71,7 +71,6 @@ export default function Card({cardId, cardImdbId, title, imgSrc, releaseDate, on
               }}
             />
             </Link>
-            {/* If chatroom open, feed chatroom the filtered messages */}
             {chatroom && <Chatroom cardId={cardId} cardImdbId={cardImdbId}/>}
             {/* {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>} */}
           </>

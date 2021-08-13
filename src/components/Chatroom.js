@@ -13,7 +13,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
   const [text, setText] = useState('')
   const initialFormData = {
     card_id: cardId,
-    m_text: text,
+    text: '',
   }
   const [formData, setFormData] = useState(initialFormData)
   
@@ -26,10 +26,16 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
     if(messages.length === 0 || messageCreated === true || messageDeleted === true) {
       getMessages()
       .then((data)=>{
+        console.log('getting messages')
         const messageList = data.filter(message => message.card === cardImdbId)
         dispatch({type: 'setMessages', data: messageList})
         setLoadingMessages(false)
         setMessageCreated(false)
+        setText('')
+        setFormData({
+          ...formData,
+          m_text: ''
+        })
         dispatch({type: 'setMessageDeleted', data: false})
       })
     }
@@ -42,13 +48,28 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
   }
   
   async function createMessage() {
-    console.log('create',formData)
+    console.log('create',formData, '\nmessages', messages)
     await Api.serverApi.messages.create(formData)
     setMessageCreated(true)
   }
 
+  // function addMessage(text){
+  //   const message = {
+  //     id: getNextId(),
+  //     text: text, 
+  //     user: loggedInUser
+  //   }
+  //   setMessageList(
+  //     (messageList) => [message, ...messageList]
+  //   )
+  // }
+
+  // function getNextId(){
+  //   const ids = messages.map(m => m.id)
+  //   return ids.sort()[ids.length - 1] + 1
+  // }
+
   function handleChange(event) {
-    console.log('handle',formData)
     setText(event.target.value)
     setFormData({
 			...formData,
@@ -76,7 +97,6 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
                 callback={() => {
                   console.log('post')
                   createMessage()
-                  setText('')
                 }}
               />
             </div>
