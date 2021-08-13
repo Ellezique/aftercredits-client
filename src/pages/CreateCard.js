@@ -12,12 +12,13 @@ export default function CreateCard() {
 
   function createCard() {
     // CHECK CARD DOESNT ALREADY EXIST
-    if(!cards.includes(cardId)) {
+    if(cards.some(card => card.imdb_id === cardId)) {
+      // DONT ADD
+      console.log('That card already exists')
+    } else {
       // ADD CARD TO BACKEND
       Api.serverApi.cards.create({ imdb_id: cardId })
       console.log('new card, what do you think?')
-    } else {
-      console.log('That card already exists')
     }
   }
 

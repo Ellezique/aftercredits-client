@@ -19,6 +19,7 @@ const App = () => {
   const initialState = {
     cards: [],
     messages: [],
+    messageDeleted: false,
     loggedInUser: sessionStorage.getItem('user') || null,
     token: sessionStorage.getItem('token') || null,
     isAdmin: sessionStorage.getItem('admin') || null,

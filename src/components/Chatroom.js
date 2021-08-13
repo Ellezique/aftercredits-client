@@ -7,7 +7,7 @@ import './Chatroom.css'
 
 export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
   const { store, dispatch } = useGlobalState()
-  const { messages } = store
+  const { messages, messageDeleted } = store
   const [loadingMessages, setLoadingMessages] = useState(true)
   const [messageCreated, setMessageCreated] = useState(false)
   const [text, setText] = useState('')
@@ -23,17 +23,18 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
   // : messagesList.filter(message => message.spoiler === false)
 
   useEffect(() => {
-    if(messages.length === 0 || messageCreated === true) {
+    if(messages.length === 0 || messageCreated === true || messageDeleted === true) {
       getMessages()
       .then((data)=>{
         const messageList = data.filter(message => message.card === cardImdbId)
         dispatch({type: 'setMessages', data: messageList})
         setLoadingMessages(false)
         setMessageCreated(false)
+        dispatch({type: 'setMessageDeleted', data: false})
       })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[messageCreated])
+  },[messageCreated, messageDeleted])
 
   async function getMessages() {
     const response = await Api.serverApi.messages.getAll()

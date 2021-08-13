@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Button from './Button'
 import Api from '../utils/Api'
 import Popup from './Popup'
@@ -13,15 +13,6 @@ export default function Message({message}) {
   const [options, setOptions] = useState(false)
   const [popupOpen, setPopupOpen] = useState(false)
   const [messageText, setMessageText] = useState(text)
-  const [messageDeleted, setMessageDeleted] = useState(false)
-
-  useEffect(()=>{
-    if(messageDeleted){
-      deleteMessage()
-      setMessageDeleted(false)
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[messageDeleted])
 
   async function updateMessage() {
     const payload = {m_text:messageText, id:id}
@@ -31,7 +22,9 @@ export default function Message({message}) {
 
   async function deleteMessage() {
     await Api.serverApi.messages.delete(id)
-    dispatch({type: 'setMessages', data: messages.filter((msg => msg !== message))})
+    const filteredMessages = messages.filter((msg => msg.id !== id))
+    dispatch({type: 'setMessageDeleted', data: true})
+    dispatch({type: 'setMessages', data: filteredMessages})
   }
 
   function handleChange(event){
@@ -83,7 +76,8 @@ export default function Message({message}) {
                 <Button 
                   text='Yes'
                   callback={() => {
-                    setMessageDeleted(true)
+                    // setMessageDeleted(true)
+                    deleteMessage()
                     setOptions(false)
                     setPopupOpen(false)
                     console.log('Yes')
