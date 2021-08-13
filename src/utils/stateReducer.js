@@ -6,6 +6,12 @@ export default function reducer(state, action) {
         cards: action.data
       }
     }
+    case 'setMessages': {
+      return {
+        ...state,
+        messages: action.data
+      }
+    }
     case 'setCardsData': {
       return {
         ...state,

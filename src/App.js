@@ -18,6 +18,7 @@ import CreateCard from './pages/CreateCard'
 const App = () => {
   const initialState = {
     cards: [],
+    messages: [],
     loggedInUser: sessionStorage.getItem('user') || null,
     token: sessionStorage.getItem('token') || null,
     isAdmin: sessionStorage.getItem('admin') || null,

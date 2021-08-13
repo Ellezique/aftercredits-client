@@ -5,9 +5,9 @@ import Popup from './Popup'
 import { useGlobalState } from '../utils/stateContext'
 import './Message.css'
 
-export default function Message({message, messages, setMessages}) {
-  const { store } = useGlobalState()
-  const { loggedInUser } = store
+export default function Message({message}) {
+  const { store, dispatch } = useGlobalState()
+  const { loggedInUser, messages } = store
   const { username, text, posted, id } = message
   const [editing, setEditing] = useState(false)
   const [options, setOptions] = useState(false)
@@ -30,14 +30,8 @@ export default function Message({message, messages, setMessages}) {
   }
 
   async function deleteMessage() {
-    console.log(messages)
     await Api.serverApi.messages.delete(id)
-    const index = messages.indexOf(message)
-    console.log(index)
-    if (index > -1) {
-      setMessages(messages.slice(index, 1))
-    }
-    console.log(messages)
+    dispatch({type: 'setMessages', data: messages.filter((msg => msg !== message))})
   }
 
   function handleChange(event){

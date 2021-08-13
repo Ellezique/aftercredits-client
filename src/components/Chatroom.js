@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react'
 import Message from './Message'
 import Button from './Button'
 import Api from './../utils/Api'
+import { useGlobalState } from '../utils/stateContext'
 import './Chatroom.css'
 
 export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
-  const [messages, setMessages] = useState([])
+  const { store, dispatch } = useGlobalState()
+  const { messages } = store
   const [loadingMessages, setLoadingMessages] = useState(true)
   const [messageCreated, setMessageCreated] = useState(false)
-  const [m_text, setText] = useState()
+  const [text, setText] = useState('')
   const initialFormData = {
     card_id: cardId,
-    m_text: m_text,
+    m_text: text,
   }
   const [formData, setFormData] = useState(initialFormData)
   
@@ -24,7 +26,8 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
     if(messages.length === 0 || messageCreated === true) {
       getMessages()
       .then((data)=>{
-        setMessages(data.filter(message => message.card === cardImdbId))
+        const messageList = data.filter(message => message.card === cardImdbId)
+        dispatch({type: 'setMessages', data: messageList})
         setLoadingMessages(false)
         setMessageCreated(false)
       })
@@ -45,6 +48,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
 
   function handleChange(event) {
     console.log('handle',formData)
+    setText(event.target.value)
     setFormData({
 			...formData,
 			[event.target.name]: event.target.value
@@ -63,8 +67,8 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
                 id ="messagetextarea"
                 name='m_text'
                 placeholder="Enter your message here:"
-                value={m_text}
-                onChange={handleChange}
+                value={text}
+                onInput={handleChange}
               />
               <Button
                 text='Post'
@@ -79,7 +83,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
               {/* RENDER MESSAGES*/}
               {messages.map((message, index) => {
                 return (
-                  <Message key={index} message={message} messages={messages} setMessages={setMessages}/>
+                  <Message key={index} message={message} />
                 )
               })}
             </div>
