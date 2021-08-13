@@ -6,35 +6,17 @@
 }
 
 .cardsContainer {
-  /* justify-content: center;
-  align-content: space-between;
-  border: 1px solid black;
-  padding: 1em 1em;
-  display: flex;
-  flex-wrap: wrap; */
-  
-                  display: grid; /*columns*/
-                  grid-template-columns: repeat(4, 1fr); /*when there are 4 cards, change to 1fr 1fr 1fr 1fr*/
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
-  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout */
-                    align-items: center; /*Keeps user in vertical center with other items*/
-                   grid-gap: 5px; /*Gap between tabs */
-  /* column-gap: auto;  */
-   /*Removes default bullets for list menu items*/
-               width: auto; 
-
-               grid-auto-rows: auto;
-               
-
+  display: grid; /*columns*/
+  grid-template-columns: repeat(4, 1fr); /*when there are 4 cards, change to 1fr 1fr 1fr 1fr*/
+  align-items: center; /*Keeps user in vertical center with other items*/
+  grid-gap: 5px; /*Gap between tabs */
+  width: auto; 
+  grid-auto-rows: auto;              
 }
 
 /*Mid size desktop*/
 @media screen and (max-width: 1700px) {
   .cardsContainer {
-    /* margin-left: 5px;
-    margin-right: 5px;
-    padding: 5px;
-   */
     grid-template-columns: repeat(3, 1fr); 
   }
 }
@@ -45,7 +27,6 @@
     margin-left: 5px;
     margin-right: 5px;
     padding: 5px;
-  
     grid-template-columns: repeat(2, 1fr); /*Max 2 cards per row in tablet view*/
   }
   .homecontainer {
