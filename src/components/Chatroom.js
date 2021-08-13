@@ -5,7 +5,7 @@ import Api from './../utils/Api'
 import { useGlobalState } from '../utils/stateContext'
 import './Chatroom.css'
 
-export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
+export default function Chatroom({ cardId, cardImdbId }) {
   const { store, dispatch } = useGlobalState()
   const { messages, messageDeleted } = store
   const [loadingMessages, setLoadingMessages] = useState(true)
@@ -16,12 +16,8 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
     text: '',
   }
   const [formData, setFormData] = useState(initialFormData)
-  
-  // const {} = messages
-  // const messages = spoilerRoom
-  // ? messagesList.filter(message => message.spoiler === true)
-  // : messagesList.filter(message => message.spoiler === false)
 
+  //handles rerendering of chatroom depending on what state is being updated in the app
   useEffect(() => {
     if(messages.length === 0 || messageCreated === true || messageDeleted === true) {
       getMessages()
@@ -42,33 +38,20 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[messageCreated, messageDeleted])
 
+  //gets all messages, should have had backend filtering functionality but it works
   async function getMessages() {
     const response = await Api.serverApi.messages.getAll()
     return response.data
   }
-  
+
+  //creates a message based on the text entered in the textinput and the card it is associated with, user association is handled automatically
   async function createMessage() {
     console.log('create',formData, '\nmessages', messages)
     await Api.serverApi.messages.create(formData)
     setMessageCreated(true)
   }
 
-  // function addMessage(text){
-  //   const message = {
-  //     id: getNextId(),
-  //     text: text, 
-  //     user: loggedInUser
-  //   }
-  //   setMessageList(
-  //     (messageList) => [message, ...messageList]
-  //   )
-  // }
-
-  // function getNextId(){
-  //   const ids = messages.map(m => m.id)
-  //   return ids.sort()[ids.length - 1] + 1
-  // }
-
+  //handles changes in the textinput text field to update the state of the formData
   function handleChange(event) {
     setText(event.target.value)
     setFormData({
@@ -79,6 +62,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
 
   return (
     <div className='chatroomContainer'>
+      {/* displays loading if our api call is taking longer than expected */}
       {loadingMessages ?
         <p>LOADING...</p>
       :
@@ -101,7 +85,7 @@ export default function Chatroom({ spoilerRoom, cardId, cardImdbId }) {
               />
             </div>
             <div>
-              {/* RENDER MESSAGES*/}
+              {/* RENDER MESSAGES, should rerender on changes to messages*/}
               {messages.map((message, index) => {
                 return (
                   <Message key={index} message={message} />

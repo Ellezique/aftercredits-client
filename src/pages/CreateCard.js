@@ -51,6 +51,7 @@ export default function CreateCard() {
             }}
           />
         </div>
+        {/* When card is created, navigate admin to home page */}
         <Link to='/' >
           <Button
             text='Create New Card'

@@ -29,21 +29,23 @@ const App = () => {
 
 return (
     <div className="App">
+      {/* Provides global state to the application */}
       <StateContext.Provider value={{store, dispatch}}>
-      <BrowserRouter>
-      <Navbar/>
-        <Switch>
-            <Route exact path='/' component={Home} />
-            <Redirect exact from="/reload" to="/" />
-            <Route exact path='/LogIn' 
-              render={(props)=> <LogIn {...props} />}
-            />
-            <Route exact path='/SignUp' component={SignUp} />
-            <Route exact path='/Contact' component={Contact} />
-            <Route exact path='/CreateCard' component={CreateCard} />
-            <Route component={NotFound} />
-        </Switch>
-      </BrowserRouter>
+        {/* Handles app routes for navigation */}
+        <BrowserRouter>
+          <Navbar/>
+          <Switch>
+              <Route exact path='/' component={Home} />
+              <Redirect exact from="/reload" to="/" />
+              <Route exact path='/LogIn' 
+                render={(props)=> <LogIn {...props} />}
+              />
+              <Route exact path='/SignUp' component={SignUp} />
+              <Route exact path='/Contact' component={Contact} />
+              <Route exact path='/CreateCard' component={CreateCard} />
+              <Route component={NotFound} />
+          </Switch>
+        </BrowserRouter>
       </StateContext.Provider>
     </div>
   )

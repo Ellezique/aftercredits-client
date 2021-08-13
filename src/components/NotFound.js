@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const NotFound = () => {
+  //will display if a user tries to navigate to a page that is not part of the app
   return (
     <div >
       <video src='https://res.cloudinary.com/ellezique/video/upload/v1628311932/smokeloop_oubxna.mp4'autoPlay loop muted/>

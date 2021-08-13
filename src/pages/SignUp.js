@@ -9,7 +9,7 @@ import { useGlobalState } from './../utils/stateContext'
 // (username: "Gizelle", email: "gizelle205@hotmail.com", password: "password123456", password_confirmation: "password123456")
 // (username: "testuser", email: "test@email.com", password: "123456", password_confirmation: "123456")
 
-const SignUp = ({ history, activateUser }) => {
+const SignUp = ({ history }) => {
   const {dispatch} = useGlobalState()
 
   const initialFormData = {
@@ -28,19 +28,24 @@ const SignUp = ({ history, activateUser }) => {
     })
   }
 
+  //handles setting user and jwt details for verification throughout the app and when calling the backend on user creation
   function handleSubmit(e) {
     e.preventDefault()
     createUser(formData)
-    .then(({username, jwt})=>{
+    .then((response)=>{
+      const {username, jwt, isAdmin} = response
       sessionStorage.setItem('token', jwt)
       sessionStorage.setItem('user', username)
+      sessionStorage.setItem('admin', isAdmin)
       dispatch({type: 'setLoggedInUser', data: username})
-      dispatch({type: 'userToken', data: jwt})
+      dispatch({type: 'setToken', data: jwt})
+      dispatch({type: 'setIsAdmin', data: isAdmin})
     })
-    // activateUser(formData.email)
+
     return history.push("/") //redirects user to home page after log in submit
   }
 
+  //Handles api call to backend for user creation
   async function createUser(formData) {
     const response = await Api.serverApi.users.auth.signup(formData)
     console.log('signup resp',response)

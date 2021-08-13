@@ -17,6 +17,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true)
   const [admin, setAdmin] = useState(false)
 
+  //Handles order of calls for necessary data needed to run the applications features
   useEffect(() => {
     if(cardsData.length === 0){
       getCardsData()
@@ -33,11 +34,13 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   },[cards, cardsData, isAdmin])
   
+  //Retrieves imdb ids from our server backend
   async function getCardsData() {
     const cardIds = await Api.serverApi.cards.getAll()
     setCardsData(cardIds.data)
   }
 
+  //Retrieves movie details based on the above imdb ids
   async function getCards() {
     const responses = await Promise.all(
       cardsData.map(async(card)=> {
@@ -48,6 +51,7 @@ export default function Home() {
     dispatch({type: 'setCards', data: responses})
   }
   
+  //Will run some functions if a card has been clicked
   function selectCard(card) {
     //Put selected card's data into state to be used in render
     setSelectedCard(card)
@@ -58,6 +62,7 @@ export default function Home() {
     getCardId(card)
   }
 
+  //Looks for the backend card id of the currently selected card
   function getCardId(card) {
     setCardId(cardsData.filter(carddata => carddata.imdb_id === card.imdbID)[0].id)
   }
@@ -67,14 +72,17 @@ export default function Home() {
       <video src='https://res.cloudinary.com/ellezique/video/upload/v1628311932/smokeloop_oubxna.mp4
 'autoPlay loop muted/>
       <div className="homecontainer">
+      {/* will display if awaiting async functions to complete so the cards can be rendered with the necessary data */}
       {loading ?
         <p>LOADING...</p>
       :  // ALL CARDS
         <>
+          {/* Will display all cards if none have been selected */}
           {!isSelected ?
             <>
               <h1>Choose a movie/series</h1>
               <p>Discussions and chatter after the credits roll.</p>
+              {/* Only admins can create new cards */}
               {admin &&
                 <Link to='/CreateCard'>
                   <Button
@@ -83,6 +91,7 @@ export default function Home() {
                   />
                 </Link>
               }
+              {/* Creates the full list of available cards that were retrieved from the server */}
               <div className='cardsContainer'>
                 {cards.map((card, index) => {
                   const { Title, Poster } = card.data

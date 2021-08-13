@@ -12,6 +12,7 @@ export default function Card({cardId, cardImdbId, title, imgSrc, releaseDate, on
   const { store } = useGlobalState()
   const { loggedInUser } = store
 
+  // Will reimplement correctly if time permits
   // function room(spoiler) {
   //   // else if(spoiler) {
   //   //   setSpoilerChatroom(true)
@@ -39,6 +40,7 @@ export default function Card({cardId, cardImdbId, title, imgSrc, releaseDate, on
       <div className="showMoreContainer">
         {selected &&
           <>
+            {/* Conditionally renders more details about a given card if the show more button is clicked */}
             {showMore &&
               <div id="showMoreBox">
                 <h4>Release date:</h4>
@@ -63,14 +65,16 @@ export default function Card({cardId, cardImdbId, title, imgSrc, releaseDate, on
                 setShowMore(!showMore)
               }}
             />
+            {/* If user is not logged in they will be redirected to the login page */}
             <Link to={!loggedInUser ? '/LogIn' : '/'}>
-            <Button
-              text='Chatroom'
-              callback={() => {
-                loggedInUser && setChatroom(!chatroom)
-              }}
-            />
+              <Button
+                text='Chatroom'
+                callback={() => {
+                  loggedInUser && setChatroom(!chatroom)
+                }}
+              />
             </Link>
+            {/* If the chatroom button is clicked the chatroom will open */}
             {chatroom && <Chatroom cardId={cardId} cardImdbId={cardImdbId}/>}
             {/* {spoilerChatroom && !chatroom && <Chatroom spoilerRoom={true}/>} */}
           </>

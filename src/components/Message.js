@@ -14,12 +14,14 @@ export default function Message({message}) {
   const [popupOpen, setPopupOpen] = useState(false)
   const [messageText, setMessageText] = useState(text)
 
+  // updates both the client and server message with the new text
   async function updateMessage() {
     const payload = {m_text:messageText, id:id}
     const response = await Api.serverApi.messages.edit(payload)
     console.log(response)
   }
 
+  //makes an api call to remove this message, clientside visual issue persists
   async function deleteMessage() {
     await Api.serverApi.messages.delete(id)
     const filteredMessages = messages.filter((msg => msg.id !== id))
@@ -27,6 +29,7 @@ export default function Message({message}) {
     dispatch({type: 'setMessages', data: filteredMessages})
   }
 
+  //handles changes to text in the textinput form
   function handleChange(event){
     setMessageText(event.target.value)
   }
@@ -51,6 +54,7 @@ export default function Message({message}) {
           }
           {options &&
             <div className='options'>
+              {/* Users can only edit their own messages */}
               {loggedInUser === username &&
                 <Button 
                   text='Edit'
@@ -62,6 +66,7 @@ export default function Message({message}) {
                   }}
                 />
               }
+              {/* A user can delete their own messages while admins can delete anyones messages */}
               {(loggedInUser === username || isAdmin) &&
                 <Button 
                   text='Delete'
@@ -73,6 +78,7 @@ export default function Message({message}) {
               }      
             </div>
           }
+          {/* Allows a user to rethink whether they want to delete their message or not*/}
           {popupOpen &&
             <Popup
               content={
@@ -103,6 +109,7 @@ export default function Message({message}) {
         </>
       :
         <>
+          {/* creates an editing textinput that saves the changes made to a message and correctly sends a put request to the server */}
           <textarea value={messageText} onChange={handleChange} />
           <div className='editButtons'>
             <Button 
